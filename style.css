@@ -94,6 +94,7 @@ body{
     text-transform: uppercase;
     color: #666666;
     background-color: #000;
+    cursor: pointer;
 }
 
   /* The Close Button */
