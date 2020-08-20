@@ -276,12 +276,17 @@ button, select {
 
 .main__products {
     display: flex;
+    margin-top:5rem ;
 }
 .product-item {
     width: 359px;
     height: 457px;
     overflow: hidden;
     position: relative;
+    background-color: #e6eef0;
+}
+.product-item:nth-child(1) {
+    margin-left: 0px;
 }
 .item-btn{
    position: absolute;
@@ -321,6 +326,32 @@ button, select {
     border: 1px solid black;
     color: #000;
 }
+.main__content {
+    text-align: center;
+    margin: 0px auto;
+    width: 300px;
+}
+.main__content h2 {
+font-size: 34px;
+line-height: 18px;
+color: black;
+font-weight: bold;
+text-transform: uppercase;
+font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+.main__content p {
+font-size: 13px;
+line-height: 18px;
+color: #6e6e6e;
+font-weight: bold;
+text-transform: uppercase;
+font-family: Georgia, 'Times New Roman', Times, serif;
+width: 248px;
+margin-top: 23px;
+margin-left: 2rem;
+    }
+
 .main__products--des {
     position: absolute;
     top: 260px;
@@ -365,7 +396,7 @@ button, select {
     margin-top: 6px;
 }
 .select-color>div {
-    padding: 0px 5px
+    padding: 0px 7px
 }
 .main__product--color span {
     font-size: 14px;
@@ -387,7 +418,7 @@ button, select {
     background-color: white;
     width: 50rem;
     height: 70px;
-    transition: all 1.5s;
+    transition: all 1s;
 }
 .item-name>div:nth-child(1){
     margin-left: 29px;
@@ -395,7 +426,7 @@ button, select {
 }
 .product-item {
     margin-left: 34px;
-    box-shadow: 5px 10px 15px #888888
+    
 }
 
 .product-item:hover .main__product--sizes {
@@ -419,9 +450,155 @@ height: 197px;
 width: 100%;
 background-color: white;
 }
+.product-item:hover{
+    box-shadow: 5px 10px 15px #888888;
+    
+}
+.overlay {
+    position: absolute;
+    background-color: rgba(210, 251, 251, 0.5);
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 17rem;  
+    transition: all 1s;
+}
+.product-item:hover .overlay {
+    width: 100%;
+}
 .main__products--two {
     margin-top: 74px;
 }
+
+
+.design__content h4{
+font-size: 13px;
+font-family: Georgia, 'Times New Roman', Times, serif;
+line-height: 18px;
+text-transform: uppercase;
+margin-top: 205px;
+}
+.design__content h2{
+font-size: 30px;
+font-family: Georgia, 'Times New Roman', Times, serif;
+text-transform: uppercase;
+color: #000;
+font-weight: bold;
+margin-top: 27px;
+margin-bottom: 16px;
+}
+.design__content a {
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #666666;     
+}
+.design {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+
+.design img {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+}
+.design__content {
+    margin-left: 15rem  ;
+}
+
+.wait {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+.wait__content h2{
+    font-size: 36px;
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    letter-spacing: 3px;
+    width: 530px;
+    line-height: 30pt;
+}
+.wait__content p {
+    color: #6e6e6e;
+    font-size: 13pt;
+    margin-top: 60px;
+}
+.submit {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+    border-bottom: 1px solid black;
+    padding-bottom: 100px;
+}
+.submit p {
+    font-size: 14px;
+    line-height: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 25px;
+    letter-spacing: 1px;
+}
+.submit__mail{
+    margin-right: 10rem;
+}
+.submit__mail input:nth-child(1) {
+border: 1px solid black;
+width: 273px;
+height: 65px;
+position: relative;
+font-size: 13pt;
+padding: 0px 15px;
+text-transform: uppercase;
+color: #6e6e6e;
+}
+.submit__mail input:nth-child(2) {
+    position: absolute;
+    border: 1px solid black;
+    width: 123px;
+    height: 67px;
+    background-color: black;
+    color: white;
+}
+    
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 100px;
+    height: 230px;
+}
+footer ul {
+    display: flex;
+    justify-content: space-between;
+}
+footer ul li a {
+    font-size: 14px;
+    line-height: 30px;
+    color: #6e6e6e;
+    text-transform: uppercase;
+    padding: 0px 15px;
+    font-weight: bold;
+}
+footer ul li:hover a{
+    color: black;
+}
+footer a {
+    font-size: 14px;
+    line-height: 30px;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: bold; 
+}
+
+footer ul:nth-child(2) li a {
+    padding: 0px 15px;
+} 
+
 
 input[type='radio']#red:after {
     width: 15px;
