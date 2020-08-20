@@ -5,11 +5,113 @@
     list-style: none;
     
 }
-
-
 body{
     height: 5000px;
 }
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  .modal__outline {
+    background-color: #fefefe;
+    margin: auto;
+    width: 38%;
+    height: 386px;
+    padding-top: 15px;
+    margin-top: 3rem;
+  }
+  /* Modal Content */
+  .modal-content {
+    padding: 20px;
+    border: 1px solid #888;
+    
+  }
+  .modal__mail {
+      margin: 0px auto;
+      width: 286px;
+      margin-top: 1rem;
+  }
+  .modal-content h2 {
+      font-size: 30px;
+      line-height: 18pt;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      text-align: center;
+      margin-top: 19px;
+  }
+  .modal-content p {
+    font-size: 18px;
+    line-height: 18pt;
+    text-transform: uppercase;
+    font-weight: lighter;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    margin-top: 19px;
+}
+.modal-content h3 {
+    font-size: 23px;
+    line-height: 18pt;
+    text-transform: uppercase;
+    font-weight: inherit;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    margin-top: 19px;
+}
+  .modal-content img {
+      margin: 0px auto;
+      display: block;
+  }
+  .modal-content{
+      margin: 0px auto;
+      width: 450px;
+      margin-top: 16px;
+      padding-bottom: 75px;
+  }
+  .modal-content input:nth-child(1){
+      width: 180px;
+      height: 50px;
+      border: 1px solid black;
+      padding: 5px 15px;
+      font-size: 15px;
+      text-transform: uppercase;
+  }
+  .modal-content input:nth-child(2){
+    width: 70px;
+    height: 63px;
+    border: 1px solid black;
+    padding: 5px 15px;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #666666;
+    background-color: #000;
+}
+
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
 header {
     height: 91px;
     background-color: black;
