@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick-1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick-1.8.1/slick/slick-theme.css">
+    <link rel="stylesheet" href="node_modules/locomotive-scroll/dist/locomotive-scroll.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <script src="built.js" type="text/javascript"></script>
+    <link rel='stylesheet' href='https://cdn.rawgit.com/daneden/animate.css/v3.1.0/animate.min.css'>
+    <link rel="stylesheet" href="node_modules/animate.css/animate.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src='https://cdn.rawgit.com/matthieua/WOW/1.0.1/dist/wow.min.js'></script>
     
     <title>Spedo</title>
 </head>
@@ -18,7 +25,7 @@
         <div class="modal-content">
           <span class="close">&times;</span>
           <img src="Images/logo.png" alt="">
-          <h2>summer sale now live</h2>
+          <h2 >summer sale now live</h2>
           <p>receive 25% off site wide </p>
           <h3>signup to get your coupon</h3>
           <div class="modal__mail">
@@ -33,14 +40,14 @@
 <header>
     <section class="header__left">
         <div class="header_language">
-            <img src="Images/US.png" alt="">
+            <img class="wow slideInLeft" data-wow-delay="3s" src="Images/US.png" alt="">
             <select name="" id="">
                 <option value="English">English</option>
                 <option value="Vietnam">Tiếng việt</option>
             </select>
         </div>
         <div class="header__money">
-            <img src="Images/dollar-icon-8.svg" style="height: 23px;width: 21px;" alt="">
+            <img class="wow bounce" data-wow-delay="3s" src="Images/dollar-icon-8.svg" style="height: 23px;width: 21px;" alt="">
         <select name="" id="">
             <option value="">USD</option>
             <option value="">Đồng</option>
@@ -51,7 +58,7 @@
             <a href="#"><p>Track your order</p></a>
         </div>
         <div class="header__location">
-            <img src="Images/location.svg" style="height: 34px;width: 30px;" alt="">
+            <img class="wow bounce" data-wow-delay="3s" src="Images/location.svg" style="height: 34px;width: 30px;" alt="">
             <a href="#"><p>Store locator</p></a>
         </div>
     </section>
@@ -59,7 +66,7 @@
     <section class="header__right">
         <a href="#">Login</a>
         <a href="#">Sign up</a>
-        <a href="#"><img src="Images/cart.png" alt=""></a>
+        <a href="#"><img class="wow bounce" data-wow-delay="1s" src="Images/cart.png" alt=""></a>
     </section>
 
 
@@ -68,13 +75,13 @@
 
 <section class="navmenu">
     <div class="navmenu__logo">
-        <a href="#"><img src="Images/logo.png" alt=""></a>
+        <a href="#"><img class="wow bounceInLeft" data-wow-delay="1.5s" src="Images/logo.png" alt=""></a>
     </div>
    
     <div class="navmenu__li">
         <ul>
             <li>
-                <a href="#">Home <img src="Images/551749-200.svg" alt="" style="height: 11px;width: 9px;"></a>
+                <a href="#" >Home <img src="Images/551749-200.svg" alt="" style="height: 11px;width: 9px;"></a>
                 <ul>
                     <li><a href="#">Cart</a></li>
                     <li><a href="#">Location</a></li>
@@ -114,9 +121,9 @@
 </section>
 
 <div class="w3-content w3-display-container" style="max-width: none;">
-    <img class="mySlides" src="Images/banner1.png" style="max-width:100%;height: 520px;">
-    <img class="mySlides" src="Images/banner2.png" style="max-width:100%;height: 520px">
-    <img class="mySlides" src="Images/banner3.png" style="max-width:100%;height: 520px">
+    <img class="mySlides wow swing" src="Images/banner1.png" style="max-width:100%;height: 520px;">
+    <img class="mySlides " src="Images/banner2.png" style="max-width:100%;height: 520px">
+    <img class="mySlides " src="Images/banner3.png" style="max-width:100%;height: 520px">
    
   
     <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
@@ -132,14 +139,14 @@
                     <a href="#"><h2>best of whites.</h2></a>
                     <a href="#">view product ></a>
                 </div>
-                <img src="Images/Model 11.png" alt="" style="height: 400px; width: 170px; overflow: hidden;right: 0;top: 0;margin-right: -24px;">
+                <img class="wow bounceInRight" data-wow-delay="1s" src="Images/Model 11.png" alt="" style="height: 400px; width: 170px; overflow: hidden;right: 0;top: 0;margin-right: -24px;">
             </div>
             <div class="main__left main__left--summer">
                 <div class="main__name--leftbot"> 
                     <a href="#"><h2>best of Summer</h2></a>
                     <a href="#">view product ></a>
                 </div>
-                <img src="Images/Model 9.png" alt="" style="height: inherit;">
+                <img class="wow bounceInRight" data-wow-delay="1s" src="Images/Model 9.png" alt="" style="height: inherit;">
             </div>
         </div>
         <div class="main__right">
@@ -148,14 +155,14 @@
                     <a href="#"><h2>best of red</h2></a>
                     <a href="#">view product ></a>
                 </div>
-                <img src="Images/Model 3.png" alt="" style="height: inherit;">
+                <img class="wow bounceInLeft" data-wow-delay="1s" src="Images/Model 3.png" alt="" style="height: inherit;">
             </div>
             <div class="main__right main__right--black">
                 <div class="main__name--rightbot"> 
                    <a href="#"><h2>best of black</h2></a> 
                     <a href="#">view product ></a>
                 </div>
-                <img src="Images/Model 1.png" alt="" style="height: max-content;">
+                <img class="wow bounceInLeft" data-wow-delay="1s" src="Images/Model 1.png" alt="" style="height: max-content;">
             </div>
         </div>
     </div>
@@ -164,15 +171,15 @@
 
 <section class="main" >
     <div class="main__content">
-        <h2>our products</h2>
-        <p>new products every fucken day.</p>
+        <h2 data-scroll>our products</h2>
+        <p data-scroll>new products every fucken day.</p>
     </div>
     <div class="main__products"> 
     <div class="product-item">
         <div class="overlay">
         </div>
-        <div>
-            <img data-image="black" src="Images/model129.png" alt="" style="height:-webkit-fill-available;margin-left: -105px; z-index: -100;" >
+        <div class="product-pic0">
+           
         </div>
         
         <div class="main__products--des">
@@ -186,7 +193,7 @@
                     <h2>fantasic black dress</h2>
                     <p>party dress</p>
                 </div>
-                <div class="main__product--price">
+                <div class="main__product--price0">
                     <p>99$</p>
                 </div>
             </div>
@@ -199,21 +206,12 @@
            <div class="main__product--color">
                 <span>color</span>
                 <div class="select-color">
-                    <div>
-                        <input type="radio" data-image="red" id="red" name="color" value="red" >
-                        <label for="red"><span></span></label>
-                    </div>
-                    <div>
-                        <input type="radio" data-image="orrage" id="orrage" name="color" value="orrage" >
-                        <label for="orrage"><span></span></label>
-                    </div>
-                    <div>
-                        <input type="radio" data-image="aqua" id="aqua" name="color" value="aqua" >
-                        <label for="qua"><span></span></label>
-                    </div>
-                    <div>
-                        <input type="radio" data-image="blue" id="blue" name="color" value="blue" >
-                        <label for="blue"><span></span></label>
+                    <div class="product-colors product-colors0  select-color">
+                        <span class="base active" data-color="#ff0033" data-pic="url(Images/model129.png)"></span>
+                        <span class="red " data-color="#ff0033" data-pic="url(Images/model129red.png)"></span>
+                        <span class="carrot" data-color="#ff4200" data-pic="url(Images/model129carrot.png)"></span>
+                        <span class="petter" data-color="#33cccc" data-pic="url(Images/model129petter.png)"></span>
+                        <span class="blue" data-color="#6666cc" data-pic="url(Images/model129blue.png)"></span>
                     </div>
                 </div>
            </div>
@@ -224,8 +222,8 @@
     <div class="product-item">
         <div class="overlay">
         </div>
-        <div>
-            <img data-image="black" src="Images/m1.png" alt="" style="height: fit-content;">
+        <div class="product-pic1">
+           
         </div>
         
         <div class="main__products--des">
@@ -238,7 +236,7 @@
                     <h2>fantasic black dress</h2>
                     <p>party dress</p>
                 </div>
-                <div class="main__product--price">
+                <div class="main__product--price1">
                     <p>99$</p>
                 </div>
             </div>
@@ -251,21 +249,12 @@
            <div class="main__product--color">
                 <span>color</span>
                 <div class="select-color">
-                    <div>
-                        <input type="radio" data-image="red" id="red" name="color" value="red" >
-                        <label for="red"><span></span></label>
-                    </div>
-                    <div>
-                        <input type="radio" data-image="orrage" id="orrage" name="color" value="orrage" >
-                        <label for="orrage"><span></span></label>
-                    </div>
-                    <div>
-                        <input type="radio" data-image="aqua" id="aqua" name="color" value="aqua" >
-                        <label for="qua"><span></span></label>
-                    </div>
-                    <div>
-                        <input type="radio" data-image="blue" id="blue" name="color" value="blue" >
-                        <label for="blue"><span></span></label>
+                    <div class="product-colors product-colors1 select-color">
+                        <span class="base active" data-color="#ff0033" data-pic="url(Images/m1.png)"></span>
+                        <span class="red " data-color="#ff0033" data-pic="url(Images/m1red.png)"></span>
+                        <span class="carrot" data-color="#ff4200" data-pic="url(Images/m1carrot.png)"></span>
+                        <span class="petter" data-color="#33cccc" data-pic="url(Images/m1petter.png)"></span>
+                        <span class="blue" data-color="#6666cc" data-pic="url(Images/m1blue.png)"></span>
                     </div>
                 </div>
            </div>
@@ -276,9 +265,7 @@
     <div class="product-item">
         <div class="overlay">
         </div>
-        <div>
-            <img data-image="black" src="Images/m3.png" alt="" style="height: -webkit-fill-available;">
-        </div>
+        <div class="product-pic2"> </div>
         
         <div class="main__products--des">
             <div class="item-btn">
@@ -290,7 +277,7 @@
                     <h2>fantasic black dress</h2>
                     <p>party dress</p>
                 </div>
-                <div class="main__product--price">
+                <div class="main__product--price2">
                     <p>99$</p>
                 </div>
             </div>
@@ -303,21 +290,12 @@
            <div class="main__product--color">
                 <span>color</span>
                 <div class="select-color">
-                    <div>
-                        <input type="radio" data-image="red" id="red" name="color" value="red" >
-                        <label for="red"><span></span></label>
-                    </div>
-                    <div>
-                        <input type="radio" data-image="orrage" id="orrage" name="color" value="orrage" >
-                        <label for="orrage"><span></span></label>
-                    </div>
-                    <div>
-                        <input type="radio" data-image="aqua" id="aqua" name="color" value="aqua" >
-                        <label for="qua"><span></span></label>
-                    </div>
-                    <div>
-                        <input type="radio" data-image="blue" id="blue" name="color" value="blue" >
-                        <label for="blue"><span></span></label>
+                    <div class="product-colors product-colors2 select-color">
+                        <span class="base active" data-color="#ff0033" data-pic="url(Images/m3.png)"></span>
+                        <span class="red " data-color="#ff0033" data-pic="url(Images/m3red.png)"></span>
+                        <span class="carrot" data-color="#ff4200" data-pic="url(Images/m3carrot.png)"></span>
+                        <span class="petter" data-color="#33cccc" data-pic="url(Images/m3petter.png)"></span>
+                        <span class="blue" data-color="#6666cc" data-pic="url(Images/m3blue.png)"></span>
                     </div>
                 </div>
            </div>
@@ -330,9 +308,7 @@
     <div class="product-item">
         <div class="overlay">
         </div>
-        <div>
-            <img data-image="black" src="Images/Model 71.png" alt="" style="height:-webkit-fill-available;margin-left: 85px;" >
-        </div>
+        <div class="product-pic3"> </div>
         
         <div class="main__products--des">
             <div class="item-btn">
@@ -344,7 +320,7 @@
                     <h2>fantasic black dress</h2>
                     <p>party dress</p>
                 </div>
-                <div class="main__product--price">
+                <div class="main__product--price3">
                     <p>99$</p>
                 </div>
             </div>
@@ -357,21 +333,12 @@
            <div class="main__product--color">
                 <span>color</span>
                 <div class="select-color">
-                    <div>
-                        <input type="radio" data-image="red" id="red" name="color" value="red" >
-                        <label for="red"><span></span></label>
-                    </div>
-                    <div>
-                        <input type="radio" data-image="orrage" id="orrage" name="color" value="orrage" >
-                        <label for="orrage"><span></span></label>
-                    </div>
-                    <div>
-                        <input type="radio" data-image="aqua" id="aqua" name="color" value="aqua" >
-                        <label for="qua"><span></span></label>
-                    </div>
-                    <div>
-                        <input type="radio" data-image="blue" id="blue" name="color" value="blue" >
-                        <label for="blue"><span></span></label>
+                    <div class="product-colors product-colors3 select-color">
+                        <span class="base active" data-color="#ff0033" data-pic="url(Images/Model\ 7.png)"></span>
+                        <span class="red " data-color="#ff0033" data-pic="url(Images/Model\ 7red.png)"></span>
+                        <span class="carrot" data-color="#ff4200" data-pic="url(Images/Model\ 7carrot.png)"></span>
+                        <span class="petter" data-color="#33cccc" data-pic="url(Images/Model\ 7petter.png)"></span>
+                        <span class="blue" data-color="#6666cc" data-pic="url(Images/Model\ 7blue.png)"></span>
                     </div>
                 </div>
            </div>
@@ -382,8 +349,8 @@
     <div class="product-item">
         <div class="overlay">
         </div>
-        <div>
-            <img data-image="black" src="Images/Model 10.png" alt="" style="height: fit-content;">
+        <div class="product-pic4">
+            
         </div>
         
         <div class="main__products--des">
@@ -396,7 +363,7 @@
                     <h2>fantasic black dress</h2>
                     <p>party dress</p>
                 </div>
-                <div class="main__product--price">
+                <div class="main__product--price4">
                     <p>99$</p>
                 </div>
             </div>
@@ -408,23 +375,12 @@
 
            <div class="main__product--color">
                 <span>color</span>
-                <div class="select-color">
-                    <div>
-                        <input type="radio" data-image="red" id="red" name="color" value="red" >
-                        <label for="red"><span></span></label>
-                    </div>
-                    <div>
-                        <input type="radio" data-image="orrage" id="orrage" name="color" value="orrage" >
-                        <label for="orrage"><span></span></label>
-                    </div>
-                    <div>
-                        <input type="radio" data-image="aqua" id="aqua" name="color" value="aqua" >
-                        <label for="qua"><span></span></label>
-                    </div>
-                    <div>
-                        <input type="radio" data-image="blue" id="blue" name="color" value="blue" >
-                        <label for="blue"><span></span></label>
-                    </div>
+                <div class="product-colors product-colors4 select-color">
+                    <span class="base " data-color="#ff0033" data-pic="url(Images/Model\ 10base.png)" ></span>
+                    <span class="red active" data-color="#ff0033" data-pic="url(Images/Model\ 10.png)"></span>
+                    <span class="carrot" data-color="#ff4200" data-pic="url(Images/Model\ 10carrot.png)"></span>
+                    <span class="petter" data-color="#33cccc" data-pic="url(Images/Model\ 10petter.png)"></span>
+                    <span class="blue" data-color="#6666cc" data-pic="url(Images/Model\ 10blue.png)"></span>
                 </div>
            </div>
             
@@ -434,9 +390,7 @@
     <div class="product-item">
         <div class="overlay">
         </div>
-        <div>
-            <img data-image="black" src="Images/Model 4.png" alt="" style="height: -webkit-fill-available;">
-        </div>
+        <div class="product-pic5"> </div>
         
         <div class="main__products--des">
             <div class="item-btn">
@@ -448,7 +402,7 @@
                     <h2>fantasic black dress</h2>
                     <p>party dress</p>
                 </div>
-                <div class="main__product--price">
+                <div class="main__product--price5">
                     <p>99$</p>
                 </div>
             </div>
@@ -460,32 +414,19 @@
 
            <div class="main__product--color">
                 <span>color</span>
-                <div class="select-color">
-                    <div>
-                        <input type="radio" data-image="red" id="red" name="color" value="red" >
-                        <label for="red"><span></span></label>
-                    </div>
-                    <div>
-                        <input type="radio" data-image="orrage" id="orrage" name="color" value="orrage" >
-                        <label for="orrage"><span></span></label>
-                    </div>
-                    <div>
-                        <input type="radio" data-image="aqua" id="aqua" name="color" value="aqua" >
-                        <label for="qua"><span></span></label>
-                    </div>
-                    <div>
-                        <input type="radio" data-image="blue" id="blue" name="color" value="blue" >
-                        <label for="blue"><span></span></label>
-                    </div>
+                <div class="product-colors product-colors5 select-color">
+                    <span class="base active" data-color="#ff0033" data-pic="url(Images/Model\ 4.png)"></span>
+                    <span class="red " data-color="#ff0033" data-pic="url(Images/Model\ 4red.png)"></span>
+                    <span class="carrot" data-color="#ff4200" data-pic="url(Images/Model\ 4carrot.png)"></span>
+                    <span class="petter" data-color="#33cccc" data-pic="url(Images/Model\ 4petter.png)"></span>
+                    <span class="blue" data-color="#6666cc" data-pic="url(Images/Model\ 4blue.png)"></span>
                 </div>
-           </div>
-            
+            </div>
         </div>
+            
     </div>
 </div>
-
-
-
+</div>
 </section>
 
 <section class="design">
@@ -494,7 +435,7 @@
         <h2>design your product now.    </h2>
         <a href="#">Shop now ></a>
     </div>
-    <img src="Images/OIY53S0.png" alt="" style="height: 600px;width: 900px;">
+    <img class="wow bounceInLeft" data-wow-delay="1.5s" src="Images/OIY53S0.png" alt="" style="height: 600px;width: 900px;">
 </section>
 
 
@@ -509,7 +450,7 @@
         <a href="#">check offer ></a>
 
     </div>
-    <img src="Images/Model 6.png" alt="" >
+    <img  class="wow slideInLeft" data-wow-delay="1s" src="Images/Model 6.png" alt="" >
 </section>
 
 
@@ -540,8 +481,19 @@
     </ul>
 </footer>
 
+    
     <script src="js/slide.js" type="text/javascript"></script>
     <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
     <script src="slick-1.8.1/slick-1.8.1/slick/slick.js" type="text/javascript" charset="utf-8"></script>
+    <script src="node_modules/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
+    <script>
+        (function () {
+            var scroll = new LocomotiveScroll();
+        })();
+    </script>
+        <script>
+        new WOW().init();
+        </script>
+    
 </body>
 </html>
