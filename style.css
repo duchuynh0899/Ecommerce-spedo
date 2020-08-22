@@ -324,7 +324,11 @@ button, select {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
     width: 93px;
+    
+    transition: all 3s;
 }
+
+
 .main__best a{
     color: #696969;
     font-size: 10px;
