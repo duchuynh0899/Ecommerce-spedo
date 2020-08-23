@@ -85,3 +85,13 @@ $(".product-colors0 span").click(function(){
    $(".main__product--price0 p").css("color",$(this).attr("data-color"));
   
 });
+
+// SCROLL PROCESS BAR
+window.onscroll = function() {myFunction()};
+
+function myFunction() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  document.getElementById("myBar").style.width = scrolled + "%";
+}
