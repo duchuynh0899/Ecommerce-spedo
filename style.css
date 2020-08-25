@@ -23,7 +23,7 @@ body{
   
 .progress-bar {
     height: 8px;
-    background-image: linear-gradient(to right, #2d3436 ,#636e72);
+    background-image: linear-gradient(to right, #2d3436 ,#636e72    );
     width: 0%;
   }
   
@@ -263,7 +263,7 @@ header {
     width: 106px;
     font-size: 13px;
     color: #b2b2b2;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 .navmenu_search {
     margin-top: 100px;
