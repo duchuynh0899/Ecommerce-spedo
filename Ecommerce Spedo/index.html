@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="node_modules/locomotive-scroll/dist/locomotive-scroll.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <script src="built.js" type="text/javascript"></script>
+    <!-- animate css link -->
+    <link rel='stylesheet' href='https://cdn.rawgit.com/daneden/animate.css/v3.1.0/animate.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css">
+    <!-- jquery link -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- wow animaiton cdn link -->
+    <script src='https://cdn.rawgit.com/matthieua/WOW/1.0.1/dist/wow.min.js'></script>
+    <!-- sal animation cdn link -->
+    <link rel="stylesheet" href="node_modules/sal.js/dist/sal.css">
+    
+    <title>Spedo</title>
+</head>
+<body>
+    <div class="header">
+        
+        <div class="progress-container">
+          <div class="progress-bar" id="myBar"></div>
+        </div>  
+      </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal__outline">
+
+        
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <img src="Images/logo.png" alt="">
+          <h2 >summer sale now live</h2>
+          <p>receive 25% off site wide </p>
+          <h3>signup to get your coupon</h3>
+          <div class="modal__mail">
+              <input type="text" placeholder="email">
+              <input type="submit" placeholder="Gửi">
+          </div>
+
+        </div>
+      
+      </div>
+    </div>
+<header class="header1">
+    <section class="header__left">
+        <div class="header_language">
+            <img class="wow slideInLeft" data-wow-delay="1s" src="Images/US.png" alt="">
+            <select name="" id="">
+                <option value="English">English</option>
+                <option value="Vietnam">Tiếng việt</option>
+            </select>
+        </div>
+        <div class="header__money">
+            <img class="wow bounce" data-wow-delay="1s" src="Images/dollar-icon-8.svg" style="height: 23px;width: 21px;" alt="">
+        <select name="" id="">
+            <option value="">USD</option>
+            <option value="">Đồng</option>
+        </select>
+        </div>
+        <div class="header__track">
+            <i class="fa fa-truck"></i>
+            <a href="#"><p>Track your order</p></a>
+        </div>
+        <div class="header__location">
+            <img class="wow bounce" data-wow-delay="3s" src="Images/location.svg" style="height: 34px;width: 30px;" alt="">
+            <a href="#"><p>Store locator</p></a>
+        </div>
+    </section>
+
+    <section class="header__right">
+        <a href="#">Login</a>
+        <a href="#">Sign up</a>
+        <a href="#"><img class="wow bounce" data-wow-delay="1s" src="Images/cart.png" alt=""></a>
+    </section>
+
+    <div class="menu">
+        <div class="bar"></div>
+        
+    </div>
+
+</header>
+
+
+<section class="navmenu">
+    <div class="navmenu__logo">
+        <a href="#"><img class="wow bounceInLeft" data-wow-delay="1.5s" src="Images/logo.png" alt=""></a>
+    </div>
+   
+    <div class="navmenu__li">
+        <ul>
+            <li>
+                <a href="#" >Home <img src="Images/551749-200.svg" alt="" style="height: 11px;width: 9px;"></a>
+                <ul>
+                    <li><a href="#">Cart</a></li>
+                    <li><a href="#">Location</a></li>
+                    <li><a href="#">Product</a></li>
+                </ul>
+                
+            </li>
+            <li>
+                <a href="#">Catlog <img src="Images/551749-200.svg" alt="" style="height: 11px;width: 9px;"></a>
+                <ul>
+                    <li><a href="#">Cart</a></li>
+                    <li><a href="#">Location</a></li>
+                    <li><a href="#">Product</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">prices <img src="Images/551749-200.svg" alt="" style="height: 11px;width: 9px;"></a>
+                <ul>
+                    <li><a href="#">Cart</a></li>
+                    <li><a href="#">Location</a></li>
+                    <li><a href="#">Product</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Blog</a>
+            </li>
+            <li><a href="#">contact</a></li>
+        </ul>
+        <div class="navmenu_search">
+            <a href="#"><img src="Images/Vector_search_icon.svg.png" style="width: 15px; height: 19px;" alt=""></a>
+            <input type="text" placeholder="Search">
+        </div>
+    </div>
+</section>
+
+<div class="w3-content w3-display-container" style="max-width: none;">
+    <img class="mySlides wow swing" src="Images/banner1.png">
+    <img class="mySlides " src="Images/banner2.png">
+    <img class="mySlides " src="Images/banner3.png">
+   
+  
+    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+  </div>
+
+<section class="main" >
+
+    <div class="main__best">
+        <div class="main__left">
+            <div class="main__left main__left--whites">
+                <div class="main__name--lefttop"> 
+                    <a href="#"><h2>best of whites.</h2></a>
+                    <a href="#">view product ></a>
+                </div>
+                <img class="wow bounceInRight" data-wow-delay="0,5s" src="Images/Model 11.png" alt="" style="height: 400px; width: 170px; overflow: hidden;right: 0;top: 0;margin-right: -24px;">
+            </div>
+            <div class="main__left main__left--summer">
+                <div class="main__name--leftbot"> 
+                    <a href="#"><h2>best of Summer</h2></a>
+                    <a href="#">view product ></a>
+                </div>
+                <img class="wow bounceInRight" data-wow-delay="0,5s" src="Images/Model 9.png" alt="" style="height: inherit;">
+            </div>
+        </div>
+        <div class="main__right">
+            <div class="main__right main__right--red">
+                <div class="main__name--righttop"> 
+                    <a href="#"><h2>best of red</h2></a>
+                    <a href="#">view product ></a>
+                </div>
+                <img class="wow bounceInLeft" data-wow-delay="0,5s" src="Images/Model 3.png" alt="" style="height: inherit;">
+            </div>
+            <div class="main__right main__right--black">
+                <div class="main__name--rightbot"> 
+                   <a href="#"><h2>best of black</h2></a> 
+                    <a href="#">view product ></a>
+                </div>
+                <img class="wow bounceInLeft" data-wow-delay="0,5s" src="Images/Model 1.png" alt="" style="height: max-content;">
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="main" >
+    <div class="main__content" data-sal-duration="1200" data-sal="zoom-in" data-sal-delay="150" data-sal-easing="ease-out-bounce">
+        <h2 >our products</h2>
+        <p >new products every fucken day.</p>
+    </div>
+    <div class="main__products"> 
+    <div class="product-item">
+        <div class="overlay">
+        </div>
+        <div class="product-pic0" data-sal-duration="1200" data-sal="zoom-in" data-sal-delay="150" data-sal-easing="ease-out-bounce">
+           
+        </div>
+        
+        <div class="main__products--des">
+        
+            <div class="item-btn">
+                <a href="#">add to cart</a>
+                <a href="#">show gallery</a>
+            </div>
+            <div class="item-name">
+                <div>
+                    <h2>fantasic black dress</h2>
+                    <p>party dress</p>
+                </div>
+                <div class="main__product--price0">
+                    <p>99$</p>
+                </div>
+            </div>
+
+           <div class="main__product--sizes">
+            <h2>sizes</h2>
+            <p>xs,sm,l,xl,xxl</p>
+           </div>
+
+           <div class="main__product--color">
+                <span>color</span>
+                <div class="select-color">
+                    <div class="product-colors product-colors0  select-color">
+                        <span class="base active" data-color="#ff0033" data-pic="url(Images/model129.png)"></span>
+                        <span class="red " data-color="#ff0033" data-pic="url(Images/model129red.png)"></span>
+                        <span class="carrot" data-color="#ff4200" data-pic="url(Images/model129carrot.png)"></span>
+                        <span class="petter" data-color="#33cccc" data-pic="url(Images/model129petter.png)"></span>
+                        <span class="blue" data-color="#6666cc" data-pic="url(Images/model129blue.png)"></span>
+                    </div>
+                </div>
+           </div>
+            
+        </div>
+    </div>
+
+    <div class="product-item">
+        <div class="overlay">
+        </div>
+        <div class="product-pic1" data-sal-duration="1200" data-sal="zoom-in" data-sal-delay="300" data-sal-easing="ease-out-bounce">
+           
+        </div>
+        
+        <div class="main__products--des">
+            <div class="item-btn">
+                <a href="#">add to cart</a>
+                <a href="#">show gallery</a>
+            </div>
+            <div class="item-name">
+                <div>
+                    <h2>fantasic black dress</h2>
+                    <p>party dress</p>
+                </div>
+                <div class="main__product--price1">
+                    <p>99$</p>
+                </div>
+            </div>
+
+           <div class="main__product--sizes">
+            <h2>sizes</h2>
+            <p>xs,sm,l,xl,xxl</p>
+           </div>
+
+           <div class="main__product--color">
+                <span>color</span>
+                <div class="select-color">
+                    <div class="product-colors product-colors1 select-color">
+                        <span class="base active" data-color="#ff0033" data-pic="url(Images/m1.png)"></span>
+                        <span class="red " data-color="#ff0033" data-pic="url(Images/m1red.png)"></span>
+                        <span class="carrot" data-color="#ff4200" data-pic="url(Images/m1carrot.png)"></span>
+                        <span class="petter" data-color="#33cccc" data-pic="url(Images/m1petter.png)"></span>
+                        <span class="blue" data-color="#6666cc" data-pic="url(Images/m1blue.png)"></span>
+                    </div>
+                </div>
+           </div>
+            
+        </div>
+    </div>
+
+    <div class="product-item">
+        <div class="overlay">
+        </div>
+        <div class="product-pic2" data-sal-duration="1200" data-sal="zoom-in" data-sal-delay="300" data-sal-easing="ease-out-bounce"> </div>
+        
+        <div class="main__products--des">
+            <div class="item-btn">
+                <a href="#">add to cart</a>
+                <a href="#">show gallery</a>
+            </div>
+            <div class="item-name">
+                <div>
+                    <h2>fantasic black dress</h2>
+                    <p>party dress</p>
+                </div>
+                <div class="main__product--price2">
+                    <p>99$</p>
+                </div>
+            </div>
+
+           <div class="main__product--sizes">
+            <h2>sizes</h2>
+            <p>xs,sm,l,xl,xxl</p>
+           </div>
+
+           <div class="main__product--color">
+                <span>color</span>
+                <div class="select-color">
+                    <div class="product-colors product-colors2 select-color">
+                        <span class="base active" data-color="#ff0033" data-pic="url(Images/m3.png)"></span>
+                        <span class="red " data-color="#ff0033" data-pic="url(Images/m3red.png)"></span>
+                        <span class="carrot" data-color="#ff4200" data-pic="url(Images/m3carrot.png)"></span>
+                        <span class="petter" data-color="#33cccc" data-pic="url(Images/m3petter.png)"></span>
+                        <span class="blue" data-color="#6666cc" data-pic="url(Images/m3blue.png)"></span>
+                    </div>
+                </div>
+           </div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="main__products main__products--two"> 
+    <div class="product-item">
+        <div class="overlay">
+        </div>
+        <div class="product-pic3" data-sal-duration="1200" data-sal="zoom-in" data-sal-delay="300" data-sal-easing="ease-out-bounce"> </div>
+        
+        <div class="main__products--des">
+            <div class="item-btn">
+                <a href="#">add to cart</a>
+                <a href="#">show gallery</a>
+            </div>
+            <div class="item-name">
+                <div>
+                    <h2>fantasic black dress</h2>
+                    <p>party dress</p>
+                </div>
+                <div class="main__product--price3">
+                    <p>99$</p>
+                </div>
+            </div>
+
+           <div class="main__product--sizes">
+            <h2>sizes</h2>
+            <p>xs,sm,l,xl,xxl</p>
+           </div>
+
+           <div class="main__product--color">
+                <span>color</span>
+                <div class="select-color">
+                    <div class="product-colors product-colors3 select-color">
+                        <span class="base active" data-color="#ff0033" data-pic="url(Images/Model\ 7.png)"></span>
+                        <span class="red " data-color="#ff0033" data-pic="url(Images/Model\ 7red.png)"></span>
+                        <span class="carrot" data-color="#ff4200" data-pic="url(Images/Model\ 7carrot.png)"></span>
+                        <span class="petter" data-color="#33cccc" data-pic="url(Images/Model\ 7petter.png)"></span>
+                        <span class="blue" data-color="#6666cc" data-pic="url(Images/Model\ 7blue.png)"></span>
+                    </div>
+                </div>
+           </div>
+            
+        </div>
+    </div>
+
+    <div class="product-item">
+        <div class="overlay">
+        </div>
+        <div class="product-pic4" data-sal-duration="1200" data-sal="zoom-in" data-sal-delay="300" data-sal-easing="ease-out-bounce">
+            
+        </div>
+        
+        <div class="main__products--des">
+            <div class="item-btn">
+                <a href="#">add to cart</a>
+                <a href="#">show gallery</a>
+            </div>
+            <div class="item-name">
+                <div>
+                    <h2>fantasic black dress</h2>
+                    <p>party dress</p>
+                </div>
+                <div class="main__product--price4">
+                    <p>99$</p>
+                </div>
+            </div>
+
+           <div class="main__product--sizes">
+            <h2>sizes</h2>
+            <p>xs,sm,l,xl,xxl</p>
+           </div>
+
+           <div class="main__product--color">
+                <span>color</span>
+                <div class="product-colors product-colors4 select-color">
+                    <span class="base " data-color="#ff0033" data-pic="url(Images/Model\ 10base.png)" ></span>
+                    <span class="red active" data-color="#ff0033" data-pic="url(Images/Model\ 10.png)"></span>
+                    <span class="carrot" data-color="#ff4200" data-pic="url(Images/Model\ 10carrot.png)"></span>
+                    <span class="petter" data-color="#33cccc" data-pic="url(Images/Model\ 10petter.png)"></span>
+                    <span class="blue" data-color="#6666cc" data-pic="url(Images/Model\ 10blue.png)"></span>
+                </div>
+           </div>
+            
+        </div>
+    </div>
+
+    <div class="product-item">
+        <div class="overlay">
+        </div>
+        <div class="product-pic5" data-sal-duration="1200" data-sal="zoom-in" data-sal-delay="300" data-sal-easing="ease-out-bounce"> </div>
+        
+        <div class="main__products--des">
+            <div class="item-btn">
+                <a href="#">add to cart</a>
+                <a href="#">show gallery</a>
+            </div>
+            <div class="item-name">
+                <div>
+                    <h2>fantasic black dress</h2>
+                    <p>party dress</p>
+                </div>
+                <div class="main__product--price5">
+                    <p>99$</p>
+                </div>
+            </div>
+
+           <div class="main__product--sizes">
+            <h2>sizes</h2>
+            <p>xs,sm,l,xl,xxl</p>
+           </div>
+
+           <div class="main__product--color">
+                <span>color</span>
+                <div class="product-colors product-colors5 select-color">
+                    <span class="base active" data-color="#ff0033" data-pic="url(Images/Model\ 4.png)"></span>
+                    <span class="red " data-color="#ff0033" data-pic="url(Images/Model\ 4red.png)"></span>
+                    <span class="carrot" data-color="#ff4200" data-pic="url(Images/Model\ 4carrot.png)"></span>
+                    <span class="petter" data-color="#33cccc" data-pic="url(Images/Model\ 4petter.png)"></span>
+                    <span class="blue" data-color="#6666cc" data-pic="url(Images/Model\ 4blue.png)"></span>
+                </div>
+            </div>
+        </div>
+            
+    </div>
+</div>
+</div>
+</section>
+
+<section class="design">
+    <div class="design__content" data-sal-duration="1200" data-sal="flip-up" data-sal-delay="300" data-sal-easing="ease-out-bounce">
+        <h4>only 20$</h4>
+        <h2>design your product now.    </h2>
+        <a href="#">Shop now ></a>
+    </div>
+    <img class="wow bounceInLeft" data-wow-delay="0.5s" src="Images/OIY53S0.png" alt="" >
+</section>
+
+
+<section class="wait main">
+    <div class="wait__content" >
+        <h2 >wait for red friday in few weeks</h2>
+        <p data-sal-duration="1200" data-sal="flip-down" data-sal-delay="300" data-sal-easing="ease-out-bounce">Print this page to PDF for the complete set of vectors. Or to use on the desktop, install FontAwesome.
+            otf, set it as the font in your application, and copy and paste the icons (not the unicode) 
+            directly from this page into your designs Print this page to PDF for the complete set of vectors.
+             Or to use on the desktop, install FontAwesome.otf, set it as the font in your application, 
+            and copy and paste the icons (not the unicode) directly from this page into your designs</p>
+        <a href="#">check offer ></a>
+
+    </div>
+    <img  class="wow slideInLeft" data-wow-delay="1.5s" src="Images/Model 6.png" alt="" >
+</section>
+
+
+<section class="submit main">
+<p>
+    stay updated on latest products releases and promotions
+</p>
+<div class="submit__mail">
+    <input type="text" value="your email adress ...">
+    <input type="submit" value="SUBMIT">
+</div>
+</section>
+
+
+<footer >
+    <a href="#" ><img class="wow animated fadeInDownBig"src="Images/logo.png" alt=""></a>
+    <ul>
+        <li><a href="#">search</a></li>
+        <li><a href="#">about us</a></li>
+        <li><a href="#">f&q</a></li>
+        <li><a href="#">terms</a></li>
+        <li><a href="#">return plocy</a></li>
+    </ul>
+    <a href="#">Flow us on</a>
+    <ul>
+        <li><a href="https://www.facebook.com/duchuynh1999"><img src="Images/facebook-square-brands.svg" alt="" style="height: 20px; width: 23px;"></a></li>
+        <li><a href="https://www.instagram.com/?hl=vi"><img src="Images/twitter-square-brands.svg" alt="" style="height: 20px; width: 23px;"></a></li>
+    </ul>
+</footer>
+
+    
+    <script src="js/slide.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+    
+    
+  
+    <script>
+        new WOW().init();
+    </script>
+    <script src="node_modules/sal.js/dist/sal.js"></script>
+    <script>
+        sal();
+    </script>
+</body>
+</html>
