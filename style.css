@@ -1263,6 +1263,7 @@ footer ul:nth-child(2) li a {
       }
     .main__products{
           width: 19rem;
+          margin-top: 5rem;
       }
     .submit {
         width: 100%;
@@ -1277,12 +1278,12 @@ footer ul:nth-child(2) li a {
     }
     .navmenu__li.active{
         flex-direction: column;
-        
+        margin-right: 7rem;
         top: 0;
         right: 0;
         z-index: 1000;
         display: block;
-        margin-top: 5rem;
+        margin-top: 2rem;
         position: fixed;
     }
     .navmenu__li> ul.active{
@@ -1291,23 +1292,77 @@ footer ul:nth-child(2) li a {
     .main__best{
         flex-direction: column;
         height: auto;
+        margin-left: unset;
+    }
+    .main__right {
+         margin-left: unset;
+         margin-top: 45px;
     }
     .main__content {
         margin: 0px auto;
-        width: 7rem;
+        width: 10rem;
+        padding-top: 5rem;
     }
-    .item-name {
-        width: 21rem;
+    .main__content h2 {
+        font-size:19px;
+    
+    }
+    .main__content p {
+        margin-left: unset;
+        width: 169px;
+    }
+    .modal__outline {
+        width: 61%;
+        margin: 0px auto;
+        
+    }
+    .item-btn {
+        left: 4.5rem;
     }
     .product-item{
         width: 19rem;
         margin: unset;
+        height: 40.6rem;
     }
+    .main__products--des p {
+       
+        font-size: 10px;
+        
+    }
+    .main__product--price1 p {
+        margin-left: unset;
+    }
+    .main__product--price0 p {
+         margin-left:unset
+    }
+    .main__product--price2 p {
+        margin-left:unset
+   }.main__product--price3 p {
+    margin-left:unset
+    }
+    .main__product--price4 p {
+        margin-left:unset
+    }
+    .main__product--price5 p {
+        margin-left:unset
+   }
     .product-item:nth-child(1) {
         margin-left: unset;
     }
     .product-pic4 {
         margin-left: unset;
+    }
+    .product-pic3 {
+         margin-left: 3rem;
+    }
+    .wait img {
+        margin: 0px auto;
+        padding-top: 3rem;
+    }
+    .submit__mail {
+        margin-right: unset;
+        margin: 0px auto;
+        padding-top: 5rem;
     }
     .design img {
         
@@ -1315,6 +1370,11 @@ footer ul:nth-child(2) li a {
     }
     .submit{
         flex-direction: column;
+    }
+    .submit p {
+        margin-left: 4rem;
+        text-align: center;
+        margin-right: 4rem;
     }
     .wait {
         flex-direction: column;
@@ -1328,6 +1388,9 @@ footer ul:nth-child(2) li a {
     }
     footer ul {
         flex-direction: column;
+    }
+    .w3-content img {
+        height: 270px;
     }
   }
 
