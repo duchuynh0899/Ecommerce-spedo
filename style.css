@@ -1281,7 +1281,7 @@ footer ul:nth-child(2) li a {
     }
     .navmenu__li.active{
         flex-direction: column;
-        margin-right: 10rem;
+        margin-right: 5rem;
         top: 0;
         right: 0;
         z-index: 1000;
@@ -1291,6 +1291,9 @@ footer ul:nth-child(2) li a {
     }
     .navmenu__li> ul.active{
         flex-direction: column;
+    }
+    .menu{
+        right: 0.5rem;
     }
     .main__best{
         flex-direction: column;
