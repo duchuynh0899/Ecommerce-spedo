@@ -1242,6 +1242,9 @@ footer ul:nth-child(2) li a {
     .modal__outline{
         margin: 0px 20px;
     }
+    .header__left{
+        justify-content: unset;
+    }
     .header_language select {
         font-size: 10px;
     }
@@ -1278,7 +1281,7 @@ footer ul:nth-child(2) li a {
     }
     .navmenu__li.active{
         flex-direction: column;
-        margin-right: 7rem;
+        margin-right: 10rem;
         top: 0;
         right: 0;
         z-index: 1000;
@@ -1303,6 +1306,9 @@ footer ul:nth-child(2) li a {
         width: 10rem;
         padding-top: 5rem;
     }
+    .modal-content{
+        height: 12rem;
+    }
     .main__content h2 {
         font-size:19px;
     
@@ -1312,12 +1318,38 @@ footer ul:nth-child(2) li a {
         width: 169px;
     }
     .modal__outline {
-        width: 61%;
+        width: 76%;
         margin: 0px auto;
+        height: 21rem;
         
+    }
+    .modal-content h2 {
+        font-size: 18px;
+    }
+    .modal-content p {
+        font-size: 14px;
+    }
+    .modal-content h3{
+        font-size: 10px;
+    }
+    .modal__mail {
+        margin-left: 1.5rem;
+    }
+    .design__content {
+        margin-left: 3rem;
+    }
+    .modal-content input:nth-child(1) {
+        height: 30px;
+        width: 5rem;
+    }
+    .modal-content input:nth-child(2) {
+        height: 41px;
     }
     .item-btn {
         left: 4.5rem;
+    }
+    .wait__content h2 {
+        margin-top: 1rem;
     }
     .product-item{
         width: 19rem;
@@ -1360,8 +1392,7 @@ footer ul:nth-child(2) li a {
         padding-top: 3rem;
     }
     .submit__mail {
-        margin-right: unset;
-        margin: 0px auto;
+        margin-left: 5rem;
         padding-top: 5rem;
     }
     .design img {
@@ -1389,8 +1420,23 @@ footer ul:nth-child(2) li a {
     footer ul {
         flex-direction: column;
     }
+    .footer__ul{
+        margin-left: 15rem;
+        margin-top: -4rem;
+    }
+    footer ul li a {
+        font-size: 13px;
+    }
+    .ul__icon{
+        flex-direction: row;
+        justify-content: unset;
+    }
     .w3-content img {
         height: 270px;
+    }
+    .navmenu__li ul li ul {
+        left: 8rem;
+        top: 3rem;
     }
   }
 
