@@ -1245,6 +1245,11 @@ footer ul:nth-child(2) li a {
     .header__left{
         justify-content: unset;
     }
+    .header1.active {
+        
+        height: 29.5rem;
+        
+    }
     .header_language select {
         font-size: 10px;
     }
@@ -1311,6 +1316,7 @@ footer ul:nth-child(2) li a {
     }
     .modal-content{
         height: 12rem;
+        width: 13rem;
     }
     .main__content h2 {
         font-size:19px;
