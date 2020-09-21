@@ -1398,6 +1398,9 @@ footer ul:nth-child(2) li a {
         margin-left: 5rem;
         padding-top: 5rem;
     }
+    .submit__mail input:nth-child(1){
+        width: 125px;
+    }
     .design img {
         
         width: 21rem;
