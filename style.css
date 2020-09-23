@@ -1464,7 +1464,8 @@ footer ul:nth-child(2) li a {
         display: inline-block;
         width: 15rem;
         height: 14rem;
-        line-height: 500px;
+        line-height: 14rem;
+        text-align: center;
     }
   }
 
