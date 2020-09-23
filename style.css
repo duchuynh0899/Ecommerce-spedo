@@ -1462,8 +1462,8 @@ footer ul:nth-child(2) li a {
     }
     .preload img{
         display: inline-block;
-        width: 500px;
-        height: 500px;
+        width: 15rem;
+        height: 14rem;
         line-height: 500px;
     }
   }
