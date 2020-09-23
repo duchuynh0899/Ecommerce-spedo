@@ -5,6 +5,16 @@
     list-style: none;
     
 }
+.body{
+    display: none;
+}
+.preload{
+    background-color: #3199DA;
+     height: 100%;
+      width: 100%;
+     text-align: center; 
+     position: fixed;
+}
 body{
     height: 5000px;
 }
@@ -1449,6 +1459,12 @@ footer ul:nth-child(2) li a {
     .navmenu__li ul li ul {
         left: 8rem;
         top: 3rem;
+    }
+    .preload img{
+        display: inline-block;
+        width: 500px;
+        height: 500px;
+        line-height: 500px;
     }
   }
 
