@@ -9,11 +9,12 @@
     display: none;
 }
 .preload{
-    background-color: #3199DA;
-     height: 100%;
-      width: 100%;
+     height: 30rem;
+     width: 100%;
      text-align: center; 
      position: fixed;
+     top: 50%;
+     transform: translateY(-50%);
 }
 body{
     height: 5000px;
@@ -1462,9 +1463,8 @@ footer ul:nth-child(2) li a {
     }
     .preload img{
         display: inline-block;
-        width: 15rem;
-        height: 14rem;
-        line-height: 500px;
+        text-align: center;
+        width: 100%;
     }
   }
 
