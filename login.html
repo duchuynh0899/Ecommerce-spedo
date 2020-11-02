@@ -1,187 +1,137 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-/* style the container */
-.container {
-  position: relative;
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px 0 30px 0;
-} 
-
-/* style inputs and link buttons */
-input,
-.btn {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 4px;
-  margin: 5px 0;
-  opacity: 0.85;
-  display: inline-block;
-  font-size: 17px;
-  line-height: 20px;
-  text-decoration: none; /* remove underline from anchors */
-}
-
-input:hover,
-.btn:hover {
-  opacity: 1;
-}
-
-/* add appropriate colors to fb, twitter and google buttons */
-.fb {
-  background-color: #3B5998;
-  color: white;
-}
-
-.twitter {
-  background-color: #55ACEE;
-  color: white;
-}
-
-.google {
-  background-color: #dd4b39;
-  color: white;
-}
-
-/* style the submit button */
-input[type=submit] {
-  background-color: #4CAF50;
-  color: white;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-/* Two-column layout */
-.col {
-  float: left;
-  width: 50%;
-  margin: auto;
-  padding: 0 50px;
-  margin-top: 6px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* vertical line */
-.vl {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
-  border: 2px solid #ddd;
-  height: 175px;
-}
-
-/* text inside the vertical line */
-.vl-innertext {
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #f1f1f1;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  padding: 8px 10px;
-}
-
-/* hide some text on medium and large screens */
-.hide-md-lg {
-  display: none;
-}
-
-/* bottom container */
-.bottom-container {
-  text-align: center;
-  background-color: #666;
-  border-radius: 0px 0px 4px 4px;
-}
-
-/* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 650px) {
-  .col {
-    width: 100%;
-    margin-top: 0;
-  }
-  /* hide the vertical line */
-  .vl {
-    display: none;
-  }
-  /* show the hidden text on small screens */
-  .hide-md-lg {
-    display: block;
-    text-align: center;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <title>Firebase Authentication</title>
+  <script src="https://unpkg.com/vue"></script>
+  <!-- Le noyau de base de développement JS SDK Firebase est toujours requis et doit être répertorié en premier-->
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+  <!--Ajoutez les produits Firebase que vous souhaitez utiliser (par exemple, Analytics, Authentication ou Cloud Firestore...)-->
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script> 
 </head>
 <body>
 
+  <div id="app">
+    <h1>Firebase Authentication</h1>
+    <div v-if="authUser">
+      <h2>Signed in as {{authUser.email}}</h2>
+      <img :src="authUser.photoURL" height="150">
+      <p>What's up, {{authUser.displayName || 'friend'}}?</p>
+      <button @click="signOut">Sign out</button>
 
+      <form @submit.prevent="updateProfile">
+        <h2>Update Profile</h2>
+        <input v-model="displayName" placeholder="Your name">
+        <input v-model="photoURL" placeholder="Your photo url">
+        <button>Update</button>
+      </form>
 
-<div class="container">
-  <form action="/action_page.php">
-    <div class="row">
-      
-      <div class="vl">
-        <span class="vl-innertext">or</span>
-      </div>
-
-      <div class="col">
-        <a href="#" class="fb btn">
-          <i class="fa fa-facebook fa-fw"></i> Login with Facebook
-         </a>
-        <a href="#" class="twitter btn">
-          <i class="fa fa-twitter fa-fw"></i> Login with Twitter
-        </a>
-        <a href="#" class="google btn"><i class="fa fa-google fa-fw">
-          </i> Login with Google+
-        </a>
-      </div>
-
-      <div class="col">
-        <div class="hide-md-lg">
-          <p>Or sign in manually:</p>
-        </div>
-
-        <input type="text" name="username" placeholder="Username" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <input type="submit" value="Login">
-      </div>
-      
+      <form @submit.prevent="updateEmail">
+        <h2>Update Email</h2>
+        <input v-model="email" placeholder="Your email">
+        <button>Update</button>
+      </form>
+  
+      <form @submit.prevent="updatePassword">
+        <h2>Update Password</h2>
+        <input type="password" v-model="newPassword" placeholder="Your password">
+        <button>Update</button>
+      </form>
     </div>
-  </form>
-</div>
+  
+    <div v-else>
+      <form @submit.prevent="register">
+        <h2>Register</h2>
+        <input type="email" v-model="email" placeholder="Type your email">
+        <input type="password" v-model="password" placeholder="Pick your password">
+        <button>Register</button>
+      </form>
+  
+      <form @submit.prevent="signIn">
+        <h2>Sign in</h2>
+        <input type="email" v-model="email" placeholder="Type your email">
+        <input type="password" v-model="password" placeholder="Type your password">
+        <button>Sign In</button>
+      </form>
 
-<div class="bottom-container">
-  <div class="row">
-    <div class="col">
-      <a href="singup.html" style="color:white" class="btn">Sign up</a>
-    </div>
-   
-    <div class="col">
-        <a href="index.html" style="color:white" class="btn">Cancel</a>
+      <div>
+        <h2>sign in with Google</h2>
+        <button @click="signInWithGoogle">Sign In</button>
       </div>
+
+    </div>
   </div>
-</div>
 
+  <script>
+    // La configuration Firebase de votre application web ( ce script doit être caché ❗❗❗)
+    var firebaseConfig = {
+      apiKey: "AIzaSyDoBusbgb03QTCOpmdR_-iDO16jWCkYmvg",
+    authDomain: "spedo-9ed7f.firebaseapp.com",
+    databaseURL: "https://spedo-9ed7f.firebaseio.com",
+    projectId: "spedo-9ed7f",
+    storageBucket: "spedo-9ed7f.appspot.com",
+    messagingSenderId: "910577652731",
+    appId: "1:910577652731:web:a78cfdb492d09c0fe0f15e",
+    measurementId: "G-C03KMVM1DL"
+    };
+    // Initialiser Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    new Vue({
+    el: '#app',
+    data: {
+      email: '',
+      password: '',
+      displayName: null,
+      photoURL: null,
+      newPassword: null,
+      authUser: null
+    },
+    methods: {
+      register () {
+        firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+          .catch(error => alert('🤕' + error.message))
+      },
+      signOut () {
+        firebase.auth().signOut()
+      },
+      signIn () {
+        firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+          .catch(error => alert('🤕 ' + error.message))
+      },
+      signInWithGoogle () {
+        const provider = new firebase.auth.GoogleAuthProvider()
+        firebase.auth().signInWithPopup(provider)
+          .catch(error => alert('🤕' + error.message))
+          .then(data => console.log(data.user, data.credential.accessToken))
+      },
+      updateProfile () {
+        this.authUser.updateProfile({
+          displayName: this.displayName,
+          photoURL: this.photoURL
+        })
+      },
+      updateEmail () {
+        this.authUser.updateEmail(this.email)
+      },
+      updatePassword () {
+        this.authUser.updatePassword(this.newPassword)
+          .then(() => { this.newPassword = null })
+          .catch(error => alert('🤕' + error.message))
+      }
+    },
+    created () {
+      firebase.auth().onAuthStateChanged(user => { 
+        this.authUser = user
+        if (user) {
+        this.displayName = user.displayName
+        this.photoURL = user.photoURL
+        this.email = user.email
+        }
+        })
+    }
+  })
+
+  </script>  
 </body>
 </html>

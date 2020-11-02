@@ -19,12 +19,17 @@
     <script src='https://cdn.rawgit.com/matthieua/WOW/1.0.1/dist/wow.min.js'></script>
     <!-- sal animation cdn link -->
     <link rel="stylesheet" href="node_modules/sal.js/dist/sal.css">
-    
+    <!-- Vue.js link -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
     <title>Spedo</title>
 </head>
 
 
-<body>
+<body >
+    
+
+    
 
     <div class="preload" >
         <img src="Images/f941ae9d16fd7d2957eea6e5b1100d1e.gif" style="text-align: center;" alt="">
@@ -85,11 +90,13 @@
         </div>
     </section>
 
-    <section class="header__right">
+    <div class="header__right">
         <a href="login.html">Login</a>
         <a href="singup.html">Sign up</a>
-        <a href="shopingcart.html"><img class="wow bounce" data-wow-delay="1s" src="Images/cart.png" alt=""></a>
-    </section>
+        <a href="shopingcart.html"><img class="wow bounce" data-wow-delay="1s" src="Images/cart.png" alt="">
+            
+        </a>
+    </div>
 
     <div class="menu">
         <div class="bar"></div>
@@ -201,7 +208,7 @@
         <p >new products every fucken day.</p>
     </div>
     <div class="main__products"> 
-    <div class="product-item">
+    <div class="product-item" v-for="(product, index) in products" :key="index">
         <div class="overlay">
         </div>
         <div class="product-pic0" data-sal-duration="1200" data-sal="zoom-in" data-sal-delay="150" data-sal-easing="ease-out-bounce">
@@ -211,7 +218,7 @@
         <div class="main__products--des">
         
             <div class="item-btn">
-                <a href="#">add to cart</a>
+                <a href="#" @click="products ++">add to cart</a>
                 <a href="#">show gallery</a>
             </div>
             <div class="item-name">
@@ -520,7 +527,58 @@
     <script>
         sal();
     </script>
-    <script src="https://unpkg.com/vue@next"></script>
+    
+    
+   
 </section>  
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data:{
+         products: [
+
+         {  name:'fantasic black dress',
+            price:'99$',
+            image: 'Images/model129.png',
+            size:   'xs,sm,l,xl,xxl'
+
+        } ,
+        {   name:'fantasic black dress',
+            price:'99$',
+            image: 'Images/m1.png',
+            size:   'xs,sm,l,xl,xxl'
+
+        },
+        {   name:'fantasic black dress',
+            price:'99$',
+            image: 'Images/m3.png',
+            size:   'xs,sm,l,xl,xxl'
+
+        },
+        {   name:'fantasic black dress',
+            price:'99$',
+            image: 'Images/Model 7.png',
+            size:   'xs,sm,l,xl,xxl'
+
+        },
+        {   name:'fantasic black dress',
+            price:'99$',
+            image: 'Images/Model 10.png',
+            size:   'xs,sm,l,xl,xxl'
+
+        },
+        {   name:'fantasic black dress',
+            price:'99$',
+            image: 'Images/Model 4.png',
+            size:   'xs,sm,l,xl,xxl'
+
+        }
+
+        ]
+        }
+         }
+            )
+</script>
 </body>
 </html>

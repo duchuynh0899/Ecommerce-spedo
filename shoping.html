@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+
+    <div id="app">
+
+
+            <section class="main" >
+                <div class="main__content" data-sal-duration="1200" data-sal="zoom-in" data-sal-delay="150" data-sal-easing="ease-out-bounce">
+                    <h2 >our products</h2>
+                    <p >new products every fucken day.</p>
+                </div>
+
+
+                
+                <div class="main__products"> 
+                <div class="product-item" v-for="(product, index) in products" :key="index">
+                    <div class="overlay">
+                    </div>
+                    <div   data-sal-duration="1200" data-sal="zoom-in" data-sal-delay="150" data-sal-easing="ease-out-bounce">
+                       <img :src="product.image" alt="">
+                    </div>
+
+                  
+                    
+                    <div class="main__products--des">
+                    
+                        <div class="item-btn">
+                            <a href="#" @click="products ++">add to cart</a>
+                            <a href="#">show gallery</a>
+                        </div>
+                        <div class="item-name">
+                            <div>
+                                <h2>{{  product.name }}</h2>
+                                <p>party dress</p>
+                            </div>
+                            <div class="main__product--price0">
+                                <p>99$</p>
+                            </div>
+                        </div>
+            
+                       <div class="main__product--sizes">
+                        <h2>sizes</h2>
+                        <p>xs,sm,l,xl,xxl</p>
+                       </div>
+            
+                       <div class="main__product--color">
+                            <span>color</span>
+                            <div class="select-color">
+                                <div class="product-colors product-colors0  select-color">
+                                    <span class="base active" data-color="#ff0033" data-pic="url(Images/model129.png)"></span>
+                                    <span class="red " data-color="#ff0033" data-pic="url(Images/model129red.png)"></span>
+                                    <span class="carrot" data-color="#ff4200" data-pic="url(Images/model129carrot.png)"></span>
+                                    <span class="petter" data-color="#33cccc" data-pic="url(Images/model129petter.png)"></span>
+                                    <span class="blue" data-color="#6666cc" data-pic="url(Images/model129blue.png)"></span>
+                                </div>
+                            </div>
+                       </div>
+                        
+                    </div>
+                </div>
+                </div>
+
+                <div class="main__products main__products--two"> 
+
+
+                    <div class="product-item" v-for="(product, index) in products" :key="index">
+                        <div class="overlay">
+                        </div>
+                        <div   data-sal-duration="1200" data-sal="zoom-in" data-sal-delay="150" data-sal-easing="ease-out-bounce">
+                           <img :src="product.image" alt="">
+                        </div>
+    
+                      
+                        
+                        <div class="main__products--des">
+                        
+                            <div class="item-btn">
+                                <a href="#" @click="products ++">add to cart</a>
+                                <a href="#">show gallery</a>
+                            </div>
+                            <div class="item-name">
+                                <div>
+                                    <h2>{{  product.name }}</h2>
+                                    <p>party dress</p>
+                                </div>
+                                <div class="main__product--price0">
+                                    <p>99$</p>
+                                </div>
+                            </div>
+                
+                           <div class="main__product--sizes">
+                            <h2>sizes</h2>
+                            <p>xs,sm,l,xl,xxl</p>
+                           </div>
+                
+                           <div class="main__product--color">
+                                <span>color</span>
+                                <div class="select-color">
+                                    <div class="product-colors product-colors0  select-color">
+                                        <span class="base active" data-color="#ff0033" data-pic="url(Images/model129.png)"></span>
+                                        <span class="red " data-color="#ff0033" data-pic="url(Images/model129red.png)"></span>
+                                        <span class="carrot" data-color="#ff4200" data-pic="url(Images/model129carrot.png)"></span>
+                                        <span class="petter" data-color="#33cccc" data-pic="url(Images/model129petter.png)"></span>
+                                        <span class="blue" data-color="#6666cc" data-pic="url(Images/model129blue.png)"></span>
+                                    </div>
+                                </div>
+                           </div>
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+                
+                <div class="main__products main__products--two"> 
+
+
+                    <div class="product-item" v-for="(product, index) in products" :key="index">
+                        <div class="overlay">
+                        </div>
+                        <div :style="{ backgroundImage: `url('${product.url}')` }"></div>
+    
+                      
+                        
+                        <div class="main__products--des">
+                        
+                            <div class="item-btn">
+                                <a href="#" @click="products ++">add to cart</a>
+                                <a href="#">show gallery</a>
+                            </div>
+                            <div class="item-name">
+                                <div>
+                                    <h2>{{  product.name }}</h2>
+                                    <p>party dress</p>
+                                </div>
+                                <div class="main__product--price0">
+                                    <p>99$</p>
+                                </div>
+                            </div>
+                
+                           <div class="main__product--sizes">
+                            <h2>sizes</h2>
+                            <p>xs,sm,l,xl,xxl</p>
+                           </div>
+                
+                           <div class="main__product--color">
+                                <span>color</span>
+                                <div class="select-color">
+                                    <div class="product-colors product-colors0  select-color">
+                                        <span class="base active" data-color="#ff0033" data-pic="url(Images/model129.png)"></span>
+                                        <span class="red " data-color="#ff0033" data-pic="url(Images/model129red.png)"></span>
+                                        <span class="carrot" data-color="#ff4200" data-pic="url(Images/model129carrot.png)"></span>
+                                        <span class="petter" data-color="#33cccc" data-pic="url(Images/model129petter.png)"></span>
+                                        <span class="blue" data-color="#6666cc" data-pic="url(Images/model129blue.png)"></span>
+                                    </div>
+                                </div>
+                           </div>
+                            
+                        </div>
+                    </div>
+
+
+                
+            
+                </section>
+   
+    </div>
+    
+    
+
+
+
+    <script>
+                var app = new Vue({
+        el: '#app',
+        data: {
+            products: [
+
+         {  name:'fantasic black dress1',
+            price:'99$',
+            image: 'Images/Model 1.png',
+            size:   'xs,sm,l,xl,xxl',
+            url: 'Images/m1.png'
+
+        } ,
+        {   name:'fantasic black dress2',
+            price:'99$',
+            image: 'Images/m1.png',
+            size:   'xs,sm,l,xl',
+            url: 'Images/m1.png'
+
+        },
+        {   name:'fantasic black dress3',
+            price:'99$',
+            image: 'Images/m3.png',
+            size:   'xs,sm,l',
+            url: 'Images/m1.png'
+
+        }]
+        }})
+
+    </script>
+    
+</body>
+</html>

@@ -32,7 +32,7 @@ window.addEventListener("load", function(event) {
     preload.style.display = "none";
     body.style.display = "block";
     modal.style.display = "block";
-  },3000);
+  },1000);
   
   
 
