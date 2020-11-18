@@ -752,6 +752,24 @@ background-color: white;
     height: 17rem;  
     transition: all 1s;
 }
+.red{
+    background-image: url(Images/Model\ 10base.png);
+}
+.blue{
+    background-image: url(Images/Model\ 7carrot.png);
+}
+.white{
+    background-image: url(Images/Model\ 71.png);
+};
+.red1{
+    background-image: url(Images/Model\ 10blue.png);
+}
+.blue1{
+    background-image: url(Images/Model\ 10carrot.png);
+}
+.white1{
+    background-image: url(Images/Model\ 10petter.png);
+}
 .product-item:hover .overlay {
     width: 100%;
 }

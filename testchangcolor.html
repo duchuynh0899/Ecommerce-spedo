@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <style>
+        .base{
+            width: 300px;
+            height: 500px;
+            background-image: url(Images/Model\ 10base.png);
+            background-repeat: no-repeat;
+            border: 1px solid black;
+        }
+        .red{
+            background-image: url(Images/Model\ 10base.png);
+        }
+        .blue{
+            background-image: url(Images/Model\ 7carrot.png);
+        }
+        .white{
+            background-image: url(Images/Model\ 71.png);
+        };
+        .red1{
+            background-image: url(Images/Model\ 10blue.png);
+        }
+        .blue1{
+            background-image: url(Images/Model\ 10carrot.png);
+        }
+        .white1{
+            background-image: url(Images/Model\ 10petter.png);
+        }
+    </style>
+    <div id="app" >
+        <div style="display: flex;">
+            <div class="base" :class="objclass">
+
+            </div>
+        </div>
+       
+        <button @click="changecolor()">Đỏ</button>
+        <button @click="changecolor1()">Xanh</button>
+        <button @click="changecolor2()">Trắng</button>
+
+        <button @click="changecolor3()">Đỏ</button>
+        <button @click="changecolor4()">Xanh</button>
+        <button @click="changecolor5()">Trắng</button>
+    </div>
+        
+    
+
+
+
+    <script>
+        var app = new Vue({
+    el: '#app',
+    data: {
+     isactive:false,
+     isnulls:false,
+     ispurples:false,
+     isactive1:false,
+     isnulls1:false,
+     ispurples1:false,
+     products: [
+
+         {  name:'fantasic black dress1',
+            price:'99$',
+            image: 'Images/Model 1.png',
+            size:   'xs,sm,l,xl,xxl',
+            url: 'Images/Model 1.png'
+
+        } ,
+        {   name:'fantasic black dress2',
+            price:'99$',
+            image: 'Images/m1.png',
+            size:   'xs,sm,l,xl',
+            url: 'Images/m1.png'
+
+        },
+        {   name:'fantasic black dress3',
+            price:'99$',
+            image: 'Images/m3.png',
+            size:   'xs,sm,l',
+            url: 'Images/m3.png'
+
+        }]
+    },
+    methods: {
+       
+        changecolor(){
+          this.isactive = !this.isactive;
+          this.isnulls = false;
+          this.ispurples = false;
+        },
+        changecolor1(){
+          this.isnulls = !this.isnulls
+          this.isactive = false;
+          this.ispurples = false;
+        },
+        changecolor2(){
+          this.ispurples = !this.ispurples;
+          this.isactive = false;
+          this.isnulls = false;
+        },
+        changecolor3(){
+          this.isactive1 = !this.isactive1;
+          this.isnulls1 = false;
+          this.ispurples1 = false;
+        },
+        changecolor4(){
+          this.isnulls1 = !this.isnulls
+          this.isactive1 = false;
+          this.ispurples1 = false;
+        },
+        changecolor5(){
+          this.ispurples1 = !this.ispurples;
+          this.isactive1 = false;
+          this.isnulls1 = false;
+        }
+      
+       
+    },
+    computed: {
+    
+      objclass(){
+        return {
+          red: this.isactive,
+          blue: this.isnulls,
+          white: this.ispurples,
+          red1: this.isactive1,
+          blue1: this.isnulls1,
+          white1: this.ispurples1
+        }
+      }
+
+    },
+  })
+
+    </script>
+
+</body>
+</html>
