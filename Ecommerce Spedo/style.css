@@ -5,6 +5,18 @@
     list-style: none;
     
 }
+.body{
+    display: none;
+}
+.preload{
+     height: 30rem;
+     width: 100%;
+     text-align: center; 
+     position: fixed;
+     top: 50%;
+     transform: translateY(-50%);
+     
+}
 body{
     height: 5000px;
 }
@@ -740,6 +752,24 @@ background-color: white;
     height: 17rem;  
     transition: all 1s;
 }
+.red{
+    background-image: url(Images/Model\ 10base.png);
+}
+.blue{
+    background-image: url(Images/Model\ 7carrot.png);
+}
+.white{
+    background-image: url(Images/Model\ 71.png);
+};
+.red1{
+    background-image: url(Images/Model\ 10blue.png);
+}
+.blue1{
+    background-image: url(Images/Model\ 10carrot.png);
+}
+.white1{
+    background-image: url(Images/Model\ 10petter.png);
+}
 .product-item:hover .overlay {
     width: 100%;
 }
@@ -1242,6 +1272,14 @@ footer ul:nth-child(2) li a {
     .modal__outline{
         margin: 0px 20px;
     }
+    .header__left{
+        justify-content: unset;
+    }
+    .header1.active {
+        
+        height: 31rem;
+        
+    }
     .header_language select {
         font-size: 10px;
     }
@@ -1263,6 +1301,7 @@ footer ul:nth-child(2) li a {
       }
     .main__products{
           width: 19rem;
+          margin-top: 5rem;
       }
     .submit {
         width: 100%;
@@ -1277,37 +1316,126 @@ footer ul:nth-child(2) li a {
     }
     .navmenu__li.active{
         flex-direction: column;
-        
+        margin-right: 5rem;
         top: 0;
         right: 0;
         z-index: 1000;
         display: block;
-        margin-top: 5rem;
+        margin-top: 2rem;
         position: fixed;
     }
     .navmenu__li> ul.active{
         flex-direction: column;
     }
+    .menu{
+        right: 0.5rem;
+    }
     .main__best{
         flex-direction: column;
         height: auto;
+        margin-left: unset;
+    }
+    .main__right {
+         margin-left: unset;
+         margin-top: 45px;
     }
     .main__content {
         margin: 0px auto;
-        width: 7rem;
+        width: 10rem;
+        padding-top: 5rem;
     }
-    .item-name {
-        width: 21rem;
+    .modal-content{
+        height: 12rem;
+        width: 13rem;
+    }
+    .main__content h2 {
+        font-size:19px;
+    
+    }
+    .main__content p {
+        margin-left: unset;
+        width: 169px;
+    }
+    .modal__outline {
+        width: 76%;
+        margin: 0px auto;
+        height: 21rem;
+        
+    }
+    .modal-content h2 {
+        font-size: 18px;
+    }
+    .modal-content p {
+        font-size: 14px;
+    }
+    .modal-content h3{
+        font-size: 10px;
+    }
+    .modal__mail {
+        margin-left: 1.5rem;
+    }
+    .design__content {
+        margin-left: 3rem;
+    }
+    .modal-content input:nth-child(1) {
+        height: 30px;
+        width: 5rem;
+    }
+    .modal-content input:nth-child(2) {
+        height: 41px;
+    }
+    .item-btn {
+        left: 4.5rem;
+    }
+    .wait__content h2 {
+        margin-top: 1rem;
     }
     .product-item{
         width: 19rem;
         margin: unset;
+        height: 40.6rem;
     }
+    .main__products--des p {
+       
+        font-size: 10px;
+        
+    }
+    .main__product--price1 p {
+        margin-left: unset;
+    }
+    .main__product--price0 p {
+         margin-left:unset
+    }
+    .main__product--price2 p {
+        margin-left:unset
+   }.main__product--price3 p {
+    margin-left:unset
+    }
+    .main__product--price4 p {
+        margin-left:unset
+    }
+    .main__product--price5 p {
+        margin-left:unset
+   }
     .product-item:nth-child(1) {
         margin-left: unset;
     }
     .product-pic4 {
         margin-left: unset;
+    }
+    .product-pic3 {
+         margin-left: 3rem;
+    }
+    .wait img {
+        margin: 0px auto;
+        padding-top: 3rem;
+    }
+    .submit__mail {
+        margin-left: 5rem;
+        padding-top: 5rem;
+    }
+    .submit__mail input:nth-child(1){
+        width: 125px;
     }
     .design img {
         
@@ -1315,6 +1443,11 @@ footer ul:nth-child(2) li a {
     }
     .submit{
         flex-direction: column;
+    }
+    .submit p {
+        margin-left: 4rem;
+        text-align: center;
+        margin-right: 4rem;
     }
     .wait {
         flex-direction: column;
@@ -1328,6 +1461,29 @@ footer ul:nth-child(2) li a {
     }
     footer ul {
         flex-direction: column;
+    }
+    .footer__ul{
+        margin-left: 15rem;
+        margin-top: -4rem;
+    }
+    footer ul li a {
+        font-size: 13px;
+    }
+    .ul__icon{
+        flex-direction: row;
+        justify-content: unset;
+    }
+    .w3-content img {
+        height: 270px;
+    }
+    .navmenu__li ul li ul {
+        left: 8rem;
+        top: 3rem;
+    }
+    .preload img{
+        display: inline-block;
+        text-align: center;
+        width: 100%;
     }
   }
 

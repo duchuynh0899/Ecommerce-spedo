@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Firebase Authentication</title>
+  <script src="https://unpkg.com/vue"></script>
+  <!-- Le noyau de base de développement JS SDK Firebase est toujours requis et doit être répertorié en premier-->
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+  <!--Ajoutez les produits Firebase que vous souhaitez utiliser (par exemple, Analytics, Authentication ou Cloud Firestore...)-->
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script> 
+</head>
+<body>
+
+  <div id="app">
+    <h1>Firebase Authentication</h1>
+    <div v-if="authUser">
+      <h2>Signed in as {{authUser.email}}</h2>
+      <img :src="authUser.photoURL" height="150">
+      <p>What's up, {{authUser.displayName || 'friend'}}?</p>
+      <button @click="signOut">Sign out</button>
+
+      <form @submit.prevent="updateProfile">
+        <h2>Update Profile</h2>
+        <input v-model="displayName" placeholder="Your name">
+        <input v-model="photoURL" placeholder="Your photo url">
+        <button>Update</button>
+      </form>
+
+      <form @submit.prevent="updateEmail">
+        <h2>Update Email</h2>
+        <input v-model="email" placeholder="Your email">
+        <button>Update</button>
+      </form>
+  
+      <form @submit.prevent="updatePassword">
+        <h2>Update Password</h2>
+        <input type="password" v-model="newPassword" placeholder="Your password">
+        <button>Update</button>
+      </form>
+    </div>
+  
+    <div v-else>
+      <form @submit.prevent="register">
+        <h2>Register</h2>
+        <input type="email" v-model="email" placeholder="Type your email">
+        <input type="password" v-model="password" placeholder="Pick your password">
+        <button>Register</button>
+      </form>
+  
+      <form @submit.prevent="signIn">
+        <h2>Sign in</h2>
+        <input type="email" v-model="email" placeholder="Type your email">
+        <input type="password" v-model="password" placeholder="Type your password">
+        <button>Sign In</button>
+      </form>
+
+      <div>
+        <h2>sign in with Google</h2>
+        <button @click="signInWithGoogle">Sign In</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // La configuration Firebase de votre application web ( ce script doit être caché ❗❗❗)
+    var firebaseConfig = {
+      apiKey: "AIzaSyCBycDp0SbpZMtBaCMcyz2V6rTeaxT0FRE",
+    authDomain: "sped-500fa.firebaseapp.com",
+    databaseURL: "https://sped-500fa.firebaseio.com",
+    projectId: "sped-500fa",
+    storageBucket: "sped-500fa.appspot.com",
+    messagingSenderId: "152140092814",
+    appId: "1:152140092814:web:d2dae5a3283a352325c0df",
+    measurementId: "G-P76K37QBHH"
+    };
+    // Initialiser Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    new Vue({
+    el: '#app',
+    data: {
+      email: '',
+      password: '',
+      displayName: null,
+      photoURL: null,
+      newPassword: null,
+      authUser: null
+    },
+    methods: {
+      register () {
+        firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+          .catch(error => alert('🤕' + error.message))
+      },
+      signOut () {
+        firebase.auth().signOut()
+      },
+      signIn () {
+        firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+          .catch(error => alert('🤕 ' + error.message))
+      },
+      signInWithGoogle () {
+        const provider = new firebase.auth.GoogleAuthProvider()
+        firebase.auth().signInWithPopup(provider)
+          .catch(error => alert('🤕' + error.message))
+          .then(data => console.log(data.user, data.credential.accessToken))
+      },
+      updateProfile () {
+        this.authUser.updateProfile({
+          displayName: this.displayName,
+          photoURL: this.photoURL
+        })
+      },
+      updateEmail () {
+        this.authUser.updateEmail(this.email)
+      },
+      updatePassword () {
+        this.authUser.updatePassword(this.newPassword)
+          .then(() => { this.newPassword = null })
+          .catch(error => alert('🤕' + error.message))
+      }
+    },
+    created () {
+      firebase.auth().onAuthStateChanged(user => { 
+        this.authUser = user
+        if (user) {
+        this.displayName = user.displayName
+        this.photoURL = user.photoURL
+        this.email = user.email
+        }
+        })
+    }
+  })
+
+  </script>  
+</body>
+</html>

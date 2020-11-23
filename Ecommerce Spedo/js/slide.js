@@ -23,11 +23,23 @@ var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+
+var body = document.getElementsByClassName("body")[0];
+var preload = document.getElementsByClassName("preload")[0];
 window.addEventListener("load", function(event) {
-  modal.style.display = "block";
+  
+  setTimeout(()=>{
+    preload.style.display = "none";
+    body.style.display = "block";
+    modal.style.display = "block";
+  },1000);
+  
+  
+
 });
 span.onclick = function() {
   modal.style.display = "none";
+  
 }
 
 

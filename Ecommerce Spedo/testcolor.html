@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+            text-decoration: none;
+            
+        }
+        #app{
+            margin: 0px auto;
+            width: 1000px;
+            padding-top: 100px;
+        }
+        .base{
+            background-repeat: no-repeat;
+            
+            display: flex;
+        }
+        ul{
+          list-style: none;
+          display: flex;
+        }
+     
+        img{
+          width: 50px;
+          height: 100px;
+        }
+
+        .active{
+          border: 1px solid tomato;
+        }
+        .base img{
+          width: fit-content;
+          height: 500px;
+        }
+        .product__view ul li img{
+            height: 70px;
+            max-width: 100px;
+            object-fit: contain;
+            
+        }
+        .product__view{
+            border: 1px solid thistle;
+            width: 350px;
+        }
+        .product__view > img{
+            width: inherit;
+        }
+        .price{
+            margin-left: 5rem;
+        }
+        .price h2{
+            font-size: 23px;
+            
+        }
+        .price__real > p{
+            color: orangered;
+            font-size: 25px;
+        }
+        .price__real p:nth-child(1) {
+            
+            font-size: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .price__real--right{
+            display: flex;
+        }
+        .price__real--right p:nth-child(1){
+            text-decoration: line-through;
+        }
+        .price__real--right p{
+            font-size: 25px;
+        }
+        .brand{
+            padding-top: 15px;
+        }
+        .brand a{
+            padding: 0px 5px;
+        }
+        .price__real{
+            padding-top: 15px;
+        }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            margin-top: 25px;
+            }
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            }
+        .cart {
+            display: flex;
+            margin-top: 25px;
+            }
+        .cart a{
+            
+            padding: 0;
+            width: 225px;
+            text-align: center;
+            margin-right: 10px;
+
+        }
+        .cart__add{
+            border: 1px solid #ffb916;
+            background: #ffb916;
+            color: #fff;
+            display: block;
+            height: 44px;
+            font-size: 16px;
+            line-height: 44px;
+        }
+        .cart__push{
+            border: 1px solid #f57224;
+            background: #f57224;
+            color: #fff;
+            display: block;
+            height: 44px;
+            font-size: 16px;
+            line-height: 44px;
+        }
+        button{
+            margin-top: 15px;
+            width: 50px;
+            font-size: 20px;
+        }
+        
+    </style>
+    <div id="app" >
+       
+            
+            <div class="base" :class="objclass">
+                <div class="product__view">
+                    <img :src="getproduct.url" alt="">
+                    <ul>
+                        <li  v-for="(item, index) in products"  @click="changecolor($event,index)" 
+                        :class="{ active: selected == index}">
+                          <img :src="item.url" :alt="item.textcolor" >
+                          
+                        </li>
+                      
+                      </ul>
+                </div>
+                
+                <div class="price">
+                    <h2>
+                        Áo Thun Nữ Trơn Cổ Tim Phối Túi Trước Ngực Nhiều Màu - THỎ TÂY
+                    </h2>
+                    <div  class="brand" style="display: flex; ">
+                        <p>Thương hiệu</p>
+                        <a href="#">SPEDO</a>
+                        <a href="#">Xem thêm quần áo tại Spedo</a>
+                    </div>
+                    <div class="price__real">
+                        <p>{{getproduct.price | formatNumber(',') | dongvietnam()}}</p>
+                        <div class="price__real--right" style="padding-top: 15px">
+                            <p>{{calculate | formatNumber(',')}}</p>
+                            <p style="border: 1px solid black;margin-left: 15px;">-10%</p>
+                        </div>
+                        
+                    </div>
+                    <div class="size">
+                        <p style="font-size: 25px; margin-top: 15px;">Kích thước</p>
+                        <div >
+                            <table  >
+                                <tr>
+                                    
+                                    <th>{{getproduct.size}}</th>
+                                    
+                                  </tr>
+                                  <p v-if="getproduct.quantity>0" style="margin-top: 15px;font-size: 15px; text-transform: uppercase; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">số lượng còn lại là:{{getproduct.quantity}}</p>
+                                  <p v-if="getproduct.quantity == 0" style="font-size: 20px; margin-top: 15px;">sản phẩm này đã hết hàng</p>
+                            </table>
+                        </div>
+                    </div>
+                    <div>
+                        <p style="font-size: 25px; margin-top: 10px;">Số lượng {{ count }}</p>
+                        <button @click="count--">-</button>
+                        <button @click="count++">+</button>
+                    </div>
+                    <div class="cart">
+                        <a href="#" class="cart__add">Mua ngay</a>
+                        <a href="#" class="cart__push">Thêm vào giỏ hàng</a>
+                    </div>
+                    
+                    
+                </div>              
+            
+            </div>
+        
+    </div>
+        
+    
+
+
+
+    <script>
+        var app = new Vue({
+    el: '#app',
+    data: {
+      target:' _blank',
+     selected:1,
+     sale:0.3,
+     price:20000,
+     count:1,
+     products: [
+
+         { id:1, 
+           name:'fantasic black dress1',
+            price:99000,
+            image: 'Images/Model 1.png',
+            size:   'xs,sm,l,xl,xxl',
+            url: "./Images/Model 1.png",
+            quantity:1,
+            textcolor: "Đỏ",
+            sale: 0.1
+
+        } ,
+        { id:2,  
+          name:'fantasic black dress2',
+            price:1990000,
+            image: 'Images/m1.png',
+            size:   'xs,sm,l,xl',
+            url: 'Images/m1.png',
+            quantity:5,
+            textcolor: "Xanh",
+            sale: 0.2
+
+        },
+        { id:3,  
+          name:'fantasic black dress3',
+            price:690000,
+            image: 'Images/m3.png',
+            size:   'xs,sm,l',
+            url: 'Images/m3.png',
+            quantity:0,
+            textcolor: "Đen",
+            sale:0.25
+
+        }]
+    },
+    methods: {
+       
+        changecolor(event,index){
+          this.selected = index
+        }
+      
+      
+       
+    },
+    computed: {
+    
+      objclass(){
+        return {
+          red: this.isactive,
+          blue: this.isnulls,
+          white: this.ispurples,
+         
+        }
+      
+      },
+      getproduct(){
+        let indexx = this.selected;
+        return this.products[indexx];
+      },
+      calculate(){
+          var number = this.price - this.sale*this.price;
+          return number;
+      }
+
+    },
+    
+    filters: {
+        formatNumber(num) {
+            return num.toString().replace(/(\B)(?=(\d{3})+(?!\d))/g, ',')
+        },
+        dongvietnam(sotien){
+         return sotien + " VND";
+}
+
+
+    }
+  })
+
+    </script>
+
+</body>
+</html>
