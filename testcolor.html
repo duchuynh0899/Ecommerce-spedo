@@ -134,10 +134,25 @@
             width: 50px;
             font-size: 20px;
         }
+        .count__cart{
+            position: fixed;
+            top: 0;
+            right: 0; 
+            margin-right: 15px; 
+            margin-top: 15px;
+            text-transform: uppercase;
+            border: 1px solid black;
+        }
         
     </style>
     <div id="app" >
-       
+            <div>
+                <a href="index.html"> <img src="Images/logo.png" alt="" style="width: auto; height: auto; position: fixed; top: 0; left: 0; margin-top: 15px; margin-left: 15px;"></a>
+            </div>
+
+            <div>
+                <p class="count__cart">Giỏ hàng {{cardNumber}}</p>
+            </div>
             
             <div class="base" :class="objclass">
                 <div class="product__view">
@@ -185,11 +200,11 @@
                     </div>
                     <div>
                         <p style="font-size: 25px; margin-top: 10px;">Số lượng {{ count }}</p>
-                        <button @click="count--">-</button>
+                        <button @click="counter()">-</button>
                         <button @click="count++">+</button>
                     </div>
                     <div class="cart">
-                        <a href="#" class="cart__add">Mua ngay</a>
+                        <a href="#" class="cart__add" @click="addtocart()">Mua ngay</a>
                         <a href="#" class="cart__push">Thêm vào giỏ hàng</a>
                     </div>
                     
@@ -211,16 +226,17 @@
       target:' _blank',
      selected:1,
      sale:0.3,
-     price:20000,
-     count:1,
+     price:1990000,
+     count:0,
+     cardNumber:0,
+     cartproducts:[],
      products: [
 
          { id:1, 
            name:'fantasic black dress1',
             price:99000,
-            image: 'Images/Model 1.png',
             size:   'xs,sm,l,xl,xxl',
-            url: "./Images/Model 1.png",
+            url: "./Images/m1red.png",
             quantity:1,
             textcolor: "Đỏ",
             sale: 0.1
@@ -229,7 +245,6 @@
         { id:2,  
           name:'fantasic black dress2',
             price:1990000,
-            image: 'Images/m1.png',
             size:   'xs,sm,l,xl',
             url: 'Images/m1.png',
             quantity:5,
@@ -240,9 +255,8 @@
         { id:3,  
           name:'fantasic black dress3',
             price:690000,
-            image: 'Images/m3.png',
             size:   'xs,sm,l',
-            url: 'Images/m3.png',
+            url: 'Images/m1blue.png',
             quantity:0,
             textcolor: "Đen",
             sale:0.25
@@ -253,6 +267,22 @@
        
         changecolor(event,index){
           this.selected = index
+        },
+        addtocart(product){
+            if (this.count + 1 >= this.getproduct.quantity ) {
+                alert("Sản phẩm không đủ hàng");
+            } else {
+             
+                this.cardNumber += 1 ;
+            }
+        },
+        counter(){
+            if(this.count > 0) {
+                count = this.count--
+            } else {
+                return 0
+            }
+              
         }
       
       
@@ -270,10 +300,11 @@
       
       },
       getproduct(){
-        let indexx = this.selected;
-        return this.products[indexx];
+        let index = this.selected;
+        return this.products[index];
       },
       calculate(){
+        
           var number = this.price - this.sale*this.price;
           return number;
       }
