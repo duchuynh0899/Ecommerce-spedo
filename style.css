@@ -5,18 +5,10 @@
     list-style: none;
     
 }
-.body{
-    display: none;
-}
-.preload{
-     height: 30rem;
-     width: 100%;
-     text-align: center; 
-     position: fixed;
-     top: 50%;
-     transform: translateY(-50%);
-     
-}
+
+
+
+  
 body{
     height: 5000px;
 }
@@ -132,6 +124,73 @@ body{
     cursor: pointer;
 }
 
+
+.modal-mask {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: table;
+    transition: opacity 0.3s ease;
+  }
+  
+  .modal-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  .modal-container {
+    width: 1000px;
+    margin: 0px auto;
+    padding: 0px 30px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+    transition: all 0.3s ease;
+    font-family: Helvetica, Arial, sans-serif;
+    overflow-y: scroll;
+  }
+  
+  .modal-header h3 {
+    margin-top: 0;
+    color: #42b983;
+  }
+  
+  .modal-body {
+    margin: 20px 0;
+  }
+  
+  .modal-default-button {
+    float: right;
+  }
+  
+  /*
+   * The following styles are auto-applied to elements with
+   * transition="modal" when their visibility is toggled
+   * by Vue.js.
+   *
+   * You can easily play with the modal transition by editing
+   * these styles.
+   */
+  
+  .modal-enter {
+    opacity: 0;
+  }
+  
+  .modal-leave-active {
+    opacity: 0;
+  }
+  
+  .modal-enter .modal-container,
+  .modal-leave-active .modal-container {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  
+
   /* The Close Button */
   .close {
     color: #aaaaaa;
@@ -145,6 +204,23 @@ body{
     color: #000;
     text-decoration: none;
     cursor: pointer;
+  }
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 5rem;
+    overflow-y: scroll;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
   }
 
 
@@ -443,7 +519,7 @@ button, select {
    left: 92px;
    display: none;
 }
-.item-btn a:nth-child(1){
+.item-btn button:nth-child(1){
     display:  block;
     width: 170px;
     height: 43px;
@@ -693,7 +769,7 @@ background-color: white;
     top: -4px;
   }
   .product-pic0{
-    background-image: url(Images/model129.png);
+    
     width: 100%;
     height: inherit;
     background-size: cover;
@@ -753,7 +829,7 @@ background-color: white;
     transition: all 1s;
 }
 .red{
-    background-image: url(Images/Model\ 10base.png);
+    background-image: url(Images/model129.png);
 }
 .blue{
     background-image: url(Images/Model\ 7carrot.png);
@@ -993,6 +1069,23 @@ footer ul:nth-child(2) li a {
     display: block;
 }
 
+
+
+.modal-body{
+    max-height: 500px;
+  }
+  .bg-gray-800-opacity{
+    background-color: #2D374850;
+  }
+  @media screen and (max-width: 768px){
+    .modal-body {
+        max-height: 400px;
+    }
+  }
+
+  /* animation for vue transition tag */
+
+  
 
 
   /* REPONSIVE */
@@ -1480,11 +1573,7 @@ footer ul:nth-child(2) li a {
         left: 8rem;
         top: 3rem;
     }
-    .preload img{
-        display: inline-block;
-        text-align: center;
-        width: 100%;
-    }
+    
   }
 
 

@@ -21,19 +21,95 @@
     <link rel="stylesheet" href="node_modules/sal.js/dist/sal.css">
     <!-- Vue.js link -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
+    <!--   tailwind cdn -->
+    
     <title>Spedo</title>
+
+    
 </head>
 
 
-<body >
+<body>
     
+<div id="app">
 
-    
+    <script type="text/x-template" id="modal-template">
+        <transition name="modal">
+          <div class="modal-mask">
+            <div class="modal-wrapper">
+              <div class="modal-container">
+  
+                <div class="modal-header">
+                  <slot name="header">
+                    default header
+                  </slot>
+                </div>
+  
+                <div class="modal-body">
+                  <slot name="body">
+                   
+                  </slot>
+                </div>
+  
+                <div class="modal-footer" style="margin-bottom: 35px">
+                  <slot name="footer">
+                    
+                    <button class="modal-default-button" @click="$emit('close')" >
+                      Tiếp tục mua hàng
+                    </button>
+                    
+                    <a href="checkout.html" style="background-color: crimson;height: 50px; width: 100px;
+                    color:white;display:block; line-height:50px; padding-left:2%; border:5px solid crimson">Thanh toán</a>
 
-    <div class="preload" >
-        <img src="Images/f941ae9d16fd7d2957eea6e5b1100d1e.gif" style="text-align: center;" alt="">
-    </div>
+                  </slot>
+                </div>
+              </div>
+            </div>
+          </div>
+        </transition>
+      </script>
+
+    <modal v-if="showModal" @close="showModal = false" style="overflow-y: scroll;">
+        
+        <table slot="header">
+                
+                    
+                    
+                    
+                
+                <tr>
+                  <th>Sản phẩm</th>
+                  <th>Hình ảnh</th>
+                  <th>Đơn giá</th>
+                  <th>Số lượng</th>
+                  <th>Thao tác</th>
+                  
+                </tr>
+                <tr v-for="(item, index) in carts" :key="index">
+                  <td style="text-transform: capitalize;">{{item.name}}</td>
+                  <td><img :src="item.image" alt="" style="height: 50px; width: 40px;"></td>
+                  <td>{{item.price}}</td>
+                  <td><input type="text" v-model="item.quantity"></td>
+                  <td><button @click="removecart(item)">Xóa</button></td>
+                  
+                </tr>
+                <tr>
+                    
+                    <td v-show="discount>0">Giảm giá {{discount}} %</td>
+                    <td>Tổng tiền hàng {{total | formatNumber | sotien}}</td>
+                    <td>Phải trả {{paytotal | formatNumber | sotien}}</td>
+                </tr>
+                <th><input type="text" id="myText" value="" placeholder="Nhận mã supersale ngay hôm nay">
+                <button  @click="sale()">Tra Mã</button></th>
+                <th><h4 style="color: coral;">Note:Giá trị đơn hàng trên 11000 VND Được giảm giá 5%, <br>
+                    trên 250000 VND Được giảm giá 10%
+                </h4></th>
+
+                
+                
+             
+        </table>
+      </modal>
 
 <section class="body">
 
@@ -93,7 +169,11 @@
     <div class="header__right">
         <a href="login.html">Login</a>
         <a href="singup.html">Sign up</a>
-        <a href="shopingcart.html"><img class="wow bounce" data-wow-delay="1s" src="Images/cart.png" alt="">
+        <a href="#"  id="show-modal" @click="showModal = true">
+            
+            <img class="wow bounce" data-wow-delay="1s" src="Images/cart.png" alt="">
+            <span style="font-size: large; padding-bottom: 10px;">{{carts.length}}</span>
+            
             
         </a>
     </div>
@@ -210,107 +290,75 @@
     <div class="main__products" > 
    
 
-    <div class="product-item">
-        <div class="overlay">
-        </div>
-        <div class="product-pic1" data-sal-duration="1200" data-sal="zoom-in" data-sal-delay="300" data-sal-easing="ease-out-bounce">
-           
-        </div>
-        
-        <div class="main__products--des">
-            <div class="item-btn">
-                <a href="#">add to cart</a>
-                <a href="testcolor.html">show gallery</a>
+        <div class="product-item" v-for="(product, index) in products" :key="index" >
+            <div class="overlay">
             </div>
-            <div class="item-name">
-                <div>
-                    <h2>fantasic black dress</h2>
-                    <p>party dress</p>
-                </div>
-                <div class="main__product--price1">
-                    <p>99$</p>
-                </div>
-            </div>
+            <div >
+                <img :src="product.image" alt="" >
+             </div>
 
-           <div class="main__product--sizes">
-            <h2>sizes</h2>
-            <p>xs,sm,l,xl,xxl</p>
-           </div>
-
-           <div class="main__product--color">
-                <span>color</span>
-                <div class="select-color">
-                    <div class="product-colors product-colors1 select-color">
-                        <span class="base active" data-color="#ff0033" data-pic="url(Images/m1.png)"></span>
-                        <span class="red " data-color="#ff0033" data-pic="url(Images/m1red.png)"></span>
-                        <span class="carrot" data-color="#ff4200" data-pic="url(Images/m1carrot.png)"></span>
-                        <span class="petter" data-color="#33cccc" data-pic="url(Images/m1petter.png)"></span>
-                        <span class="blue" data-color="#6666cc" data-pic="url(Images/m1blue.png)"></span>
+          
+            
+            <div class="main__products--des">
+            
+                <div class="item-btn">
+                    <button href="#" @click="addtocart(product)">add to cart</button>
+                    <a href="testcolor.html">show gallery</a>
+                </div>
+                <div class="item-name">
+                    <div>
+                        <h2>{{  product.name }}</h2>
+                        <p>party dress</p>
+                    </div>
+                    <div class="main__product--price0">
+                        <p>99$</p>
                     </div>
                 </div>
-           </div>
-            
-        </div>
-    </div>
-
-
-    <div class="product-item">
-        <div class="overlay">
-        </div>
-        <div class="product-pic2" data-sal-duration="1200" data-sal="zoom-in" data-sal-delay="300" data-sal-easing="ease-out-bounce"> </div>
-        
-        <div class="main__products--des">
-            <div class="item-btn">
-                <a href="#">add to cart</a>
-                <a href="testcolor.html">show gallery</a>
-            </div>
-            <div class="item-name">
-                <div>
-                    <h2>fantasic black dress</h2>
-                    <p>party dress</p>
-                </div>
-                <div class="main__product--price2">
-                    <p>99$</p>
-                </div>
-            </div>
-
-           <div class="main__product--sizes">
-            <h2>sizes</h2>
-            <p>xs,sm,l,xl,xxl</p>
-           </div>
-
-           <div class="main__product--color">
-                <span>color</span>
-                <div class="select-color">
-                    <div class="product-colors product-colors2 select-color">
-                        <span class="base active" data-color="#ff0033" data-pic="url(Images/m3.png)"></span>
-                        <span class="red " data-color="#ff0033" data-pic="url(Images/m3red.png)"></span>
-                        <span class="carrot" data-color="#ff4200" data-pic="url(Images/m3carrot.png)"></span>
-                        <span class="petter" data-color="#33cccc" data-pic="url(Images/m3petter.png)"></span>
-                        <span class="blue" data-color="#6666cc" data-pic="url(Images/m3blue.png)"></span>
+    
+               <div class="main__product--sizes">
+                <h2>sizes</h2>
+                <p>xs,sm,l,xl,xxl</p>
+               </div>
+    
+               <div class="main__product--color">
+                    <span>color</span>
+                    <div class="select-color">
+                        <div class="product-colors product-colors0  select-color">
+                            <span class="base active" data-color="#ff0033" data-pic="url(Images/model129.png)"></span>
+                            <span class="red " data-color="#ff0033" data-pic="url(Images/model129red.png)"></span>
+                            <span class="carrot" data-color="#ff4200" data-pic="url(Images/model129carrot.png)"></span>
+                            <span class="petter" data-color="#33cccc" data-pic="url(Images/model129petter.png)"></span>
+                            <span class="blue" data-color="#6666cc" data-pic="url(Images/model129blue.png)"></span>
+                        </div>
                     </div>
-                </div>
-           </div>
-            
+               </div>
+                
+            </div>
         </div>
-    </div>
 
-    <div class="product-item" id="app">
+
+    
+</div>
+
+<div class="main__products main__products--two"> 
+    <div class="product-item" v-for="(product, index) in products1" :key="index" >
         <div class="overlay">
         </div>
-        <div class="product-pic0" :class="objclass">
-           
-        </div>
+        <div >
+            <img :src="product.image" alt="" >
+         </div>
+
+      
         
         <div class="main__products--des">
         
             <div class="item-btn">
-                <a href="#" @click="products ++">add to cart</a>
+                <button href="#" @click="addtocart(product)">add to cart</button>
                 <a href="testcolor.html">show gallery</a>
             </div>
             <div class="item-name">
                 <div>
-                    <h2>fantasic black dress</h2>
+                    <h2>{{  product.name }}</h2>
                     <p>party dress</p>
                 </div>
                 <div class="main__product--price0">
@@ -327,54 +375,11 @@
                 <span>color</span>
                 <div class="select-color">
                     <div class="product-colors product-colors0  select-color">
-                        <span class="base active" data-color="#ff0033" @click="changecolor()"></span>
-                        <span class="red " data-color="#ff0033" @click="changecolor1()"></span>
-                        <span class="carrot" data-color="#ff4200" @click="changecolor2()"></span>
-                        <span class="petter" data-color="#33cccc" @click="changecolor3()"></span>
-                        <span class="blue" data-color="#6666cc" @click="changecolor4()"></span>
-                    </div>
-                </div>
-           </div>
-            
-        </div>
-    </div>
-</div>
-
-<div class="main__products main__products--two"> 
-    <div class="product-item">
-        <div class="overlay">
-        </div>
-        <div class="product-pic3" data-sal-duration="1200" data-sal="zoom-in" data-sal-delay="300" data-sal-easing="ease-out-bounce"> </div>
-        
-        <div class="main__products--des">
-            <div class="item-btn">
-                <a href="#">add to cart</a>
-                <a href="testcolor.html">show gallery</a>
-            </div>
-            <div class="item-name">
-                <div>
-                    <h2>fantasic black dress</h2>
-                    <p>party dress</p>
-                </div>
-                <div class="main__product--price3">
-                    <p>99$</p>
-                </div>
-            </div>
-
-           <div class="main__product--sizes">
-            <h2>sizes</h2>
-            <p>xs,sm,l,xl,xxl</p>
-           </div>
-
-           <div class="main__product--color">
-                <span>color</span>
-                <div class="select-color">
-                    <div class="product-colors product-colors3 select-color">
-                        <span class="base active" data-color="#ff0033" data-pic="url(Images/Model\ 7.png)"></span>
-                        <span class="red " data-color="#ff0033" data-pic="url(Images/Model\ 7red.png)"></span>
-                        <span class="carrot" data-color="#ff4200" data-pic="url(Images/Model\ 7carrot.png)"></span>
-                        <span class="petter" data-color="#33cccc" data-pic="url(Images/Model\ 7petter.png)"></span>
-                        <span class="blue" data-color="#6666cc" data-pic="url(Images/Model\ 7blue.png)"></span>
+                        <span class="base active" data-color="#ff0033" data-pic="url(Images/model129.png)"></span>
+                        <span class="red " data-color="#ff0033" data-pic="url(Images/model129red.png)"></span>
+                        <span class="carrot" data-color="#ff4200" data-pic="url(Images/model129carrot.png)"></span>
+                        <span class="petter" data-color="#33cccc" data-pic="url(Images/model129petter.png)"></span>
+                        <span class="blue" data-color="#6666cc" data-pic="url(Images/model129blue.png)"></span>
                     </div>
                 </div>
            </div>
@@ -382,87 +387,11 @@
         </div>
     </div>
 
-    <div class="product-item">
-        <div class="overlay">
-        </div>
-        <div class="product-pic4" data-sal-duration="1200" data-sal="zoom-in" data-sal-delay="300" data-sal-easing="ease-out-bounce">
-            
-        </div>
-        
-        <div class="main__products--des">
-            <div class="item-btn">
-                <a href="#">add to cart</a>
-                <a href="testcolor.html">show gallery</a>
-            </div>
-            <div class="item-name">
-                <div>
-                    <h2>fantasic black dress</h2>
-                    <p>party dress</p>
-                </div>
-                <div class="main__product--price4">
-                    <p>99$</p>
-                </div>
-            </div>
-
-           <div class="main__product--sizes">
-            <h2>sizes</h2>
-            <p>xs,sm,l,xl,xxl</p>
-           </div>
-
-           <div class="main__product--color">
-                <span>color</span>
-                <div class="product-colors product-colors4 select-color">
-                    <span class="base " data-color="#ff0033" data-pic="url(Images/Model\ 10base.png)" ></span>
-                    <span class="red active" data-color="#ff0033" data-pic="url(Images/Model\ 10.png)"></span>
-                    <span class="carrot" data-color="#ff4200" data-pic="url(Images/Model\ 10carrot.png)"></span>
-                    <span class="petter" data-color="#33cccc" data-pic="url(Images/Model\ 10petter.png)"></span>
-                    <span class="blue" data-color="#6666cc" data-pic="url(Images/Model\ 10blue.png)"></span>
-                </div>
-           </div>
-            
-        </div>
+    
     </div>
 
-    <div class="product-item">
-        <div class="overlay">
-        </div>
-        <div class="product-pic5" data-sal-duration="1200" data-sal="zoom-in" data-sal-delay="300" data-sal-easing="ease-out-bounce"> </div>
-        
-        <div class="main__products--des">
-            <div class="item-btn">
-                <a href="#">add to cart</a>
-                <a href="testcolor.html">show gallery</a>
-            </div>
-            <div class="item-name">
-                <div>
-                    <h2>fantasic black dress</h2>
-                    <p>party dress</p>
-                </div>
-                <div class="main__product--price5">
-                    <p>99$</p>
-                </div>
-            </div>
-
-           <div class="main__product--sizes">
-            <h2>sizes</h2>
-            <p>xs,sm,l,xl,xxl</p>
-           </div>
-
-           <div class="main__product--color">
-                <span>color</span>
-                <div class="product-colors product-colors5 select-color">
-                    <span class="base active" data-color="#ff0033" data-pic="url(Images/Model\ 4.png)"></span>
-                    <span class="red " data-color="#ff0033" data-pic="url(Images/Model\ 4red.png)"></span>
-                    <span class="carrot" data-color="#ff4200" data-pic="url(Images/Model\ 4carrot.png)"></span>
-                    <span class="petter" data-color="#33cccc" data-pic="url(Images/Model\ 4petter.png)"></span>
-                    <span class="blue" data-color="#6666cc" data-pic="url(Images/Model\ 4blue.png)"></span>
-                </div>
-            </div>
-        </div>
-            
     </div>
-</div>
-</div>
+
 </section>
 
 <section class="design">
@@ -534,56 +463,73 @@
     
    
 </section>  
-
+</div>
 <script>
+    Vue.component("modal", {
+            template: "#modal-template"
+        });
+
+
     var app = new Vue({
         el: '#app',
         data:{
-                products: [
+            products: [
 
-                {  name:'fantasic black dress',
-                    price:'99$',
-                    image: 'Images/model129.png',
-                    size:   'xs,sm,l,xl,xxl'
+                {  name:'fantasic black dress1',
+                price:99000,
+                image: 'Images/Model 1.png',
+                size:   'xs,sm,l,xl,xxl',
+                url: 'Images/m1.png',
+                quantity:1
 
                 } ,
-                {   name:'fantasic black dress',
-                    price:'99$',
-                    image: 'Images/m1.png',
-                    size:   'xs,sm,l,xl,xxl'
+                {   name:'fantasic black dress2',
+                price:9000,
+                image: 'Images/m1.png',
+                size:   'xs,sm,l,xl',
+                url: 'Images/m1.png',
+                quantity:1
 
                 },
-                {   name:'fantasic black dress',
-                    price:'99$',
-                    image: 'Images/m3.png',
-                    size:   'xs,sm,l,xl,xxl'
+                {   name:'fantasic black dress3',
+                price:19900,
+                image: 'Images/m3.png',
+                size:   'xs,sm,l',
+                url: 'Images/m3.png',
+                quantity:1
 
-                },
-                {   name:'fantasic black dress',
-                    price:'99$',
-                    image: 'Images/Model 7.png',
-                    size:   'xs,sm,l,xl,xxl'
+                }],products1: [
 
-                },
-                {   name:'fantasic black dress',
-                    price:'99$',
+                    {  name:'fantasic black dress4',
+                    price:99000,
+                    image: 'Images/Model 71.png',
+                    size:   'xs,sm,l,xl,xxl',
+                    url: 'Images/Model 1.png',
+                    quantity:1
+
+                    } ,
+                    {   name:'fantasic black dress5',
+                    price:9090,
                     image: 'Images/Model 10.png',
-                    size:   'xs,sm,l,xl,xxl'
+                    size:   'xs,sm,l,xl',
+                    url: 'Images/m1.png',
+                    quantity:1
 
-                },
-                {   name:'fantasic black dress',
-                    price:'99$',
-                    image: 'Images/Model 4.png',
-                    size:   'xs,sm,l,xl,xxl'
+                    },
+                    {   name:'fantasic black dress6',
+                    price:990000,
+                    image: 'Images/Model 41.png',
+                    size:   'xs,sm,l',
+                    url: 'Images/m3.png',
+                    quantity:1
 
-                }
-
-                ],
-                active:false,
-                isactive:false,
-                isnulls:false,
-                ispurples:false,
-                isactive1:false
+                }],carts:[],
+                active:false,           
+                showModal: false,
+                total: 0,
+                discount: 0,
+                paytotal: 0,
+                magiamgia:['sieusale','supersale','20/10']
         },
         methods: {
        
@@ -617,10 +563,78 @@
                     this.ispurples1 = !this.ispurples;
                     this.isactive1 = false;
                     this.isnulls1 = false;
-                }
-     
+                },
+                addtocart(product){                  
+                    var indexproduct = this.carts.indexOf(product);
+                    if (indexproduct !== -1) {
+                        alert("Mặt hàng này đã có!");
+                        this.carts[indexproduct].quantity += 1;
+                        
+
+                    } else {
+                        this.carts.push(product);
+                    }
+                    
+                },
+                removecart(cartproduct) {
+                var productindex = this.carts.indexOf(cartproduct);
+                this.carts.splice(productindex, 1);
+
+        }
+        
+                ,
+                showModal(){
+            if(this.show_modal){
+              //stop screen scrolling
+              document.getElementsByTagName("html")[0].classList.remove('overflow-y-hidden'); 
+              this.show_modal = false;
+            }else{
+              document.getElementsByTagName("html")[0].classList.add('overflow-y-hidden');
+              this.show_modal = true;
+            }
+          }
+         
+     ,
+     calculatecart() {
+            let total = 0;
+            this.carts.forEach((product) => {
+
+                total += product.price * product.quantity;
+            });
+            console.log(total);
+            this.total = total;
+
+            // calcualate discount
+            this.discount = 0;
+            if (this.total > 110000) {
+                this.discount = 5;
+            }
+            if (this.total > 250000) {
+                this.discount = 10;
+            }
+            
+
+            // calcualate alltotal
+            this.paytotal = this.total - ((this.discount / 100) * this.total)
+
+        },
+      sale(){
+            var x = document.getElementById("myText").value;
+              console.log(x)
+              
+                    if (this.magiamgia.indexOf(x) !== -1) {
+                        
+                        alert('Thêm mã thành công')
+                       return this.discount += 5;
+                       this.calculatecart();
+
+                    } else {
+                        alert('Mã đã hết hạn hoặc không tồn tại')
+                    }
+          }
       
-   },
+   }
+    ,
    computed: {
         objclass(){
         return {
@@ -634,7 +648,32 @@
       }
                
 
-   }
+   },
+   watch: {
+        carts: {
+            handler() {
+
+                this.calculatecart();
+            },
+            deep: true,
+            immediate: true,
+
+        },
+        discount() {
+            console.log("count thay đổi")
+            calculatecart();
+            }
+
+    }
+    ,
+    filters: {
+        formatNumber(num) {
+            return num.toString().replace(/(\B)(?=(\d{3})+(?!\d))/g, ',')
+        },
+        sotien(sotien){
+            return sotien + " VND"
+        }
+    }
          }
             )
 </script>

@@ -151,7 +151,7 @@
             </div>
 
             <div>
-                <a class="count__cart" style="font-size: 25px;"> <img src="Images/—Pngtree—shopping cart icon_4436010.png" alt="">{{cardNumber}}</a>
+                <a href="shopingcart.html" class="count__cart" style="font-size: 25px;"> <img src="Images/—Pngtree—shopping cart icon_4436010.png" alt="">{{cardNumber}}</a>
             </div>
             
             <div class="base" :class="objclass">
@@ -198,14 +198,10 @@
                             </table>
                         </div>
                     </div>
-                    <div>
-                        <p style="font-size: 25px; margin-top: 10px;">Số lượng {{ count }}</p>
-                        <button @click="counter()">-</button>
-                        <button @click="count++">+</button>
-                    </div>
+                   
                     <div class="cart">
                         <a href="#" class="cart__add" @click="addtocart()">Mua ngay</a>
-                        <a href="#" class="cart__push">Thêm vào giỏ hàng</a>
+                        <a href="#" class="cart__push" @click="addtocart()">Thêm vào giỏ hàng</a>
                     </div>
                     
                     
@@ -269,20 +265,12 @@
           this.selected = index
         },
         addtocart(product){
-            if (this.count + 1 >= this.getproduct.quantity ) {
+            if (this.cardNumber + 1 > this.getproduct.quantity ) {
                 alert("Sản phẩm không đủ hàng");
             } else {
              
-                this.cardNumber += 1 ;
+                this.cardNumber = this.cardNumber +  1 ;
             }
-        },
-        counter(){
-            if(this.count > 0) {
-                count = this.count--
-            } else {
-                return 0
-            }
-              
         }
       
       

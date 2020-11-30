@@ -8,6 +8,7 @@ function plusDivs(n) {
 function showDivs(n) {
   var i;
   var x = document.getElementsByClassName("mySlides");
+  console.log(x);
   if (n > x.length) {slideIndex = 1}
   if (n < 1) {slideIndex = x.length}
   for (i = 0; i < x.length; i++) {
@@ -16,7 +17,7 @@ function showDivs(n) {
   x[slideIndex-1].style.display = "block";  
 }
 // Get the modal
-var modal = document.getElementById("myModal");
+const modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
@@ -24,13 +25,14 @@ var btn = document.getElementById("myBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
+
+
 var body = document.getElementsByClassName("body")[0];
-var preload = document.getElementsByClassName("preload")[0];
-window.addEventListener("load", function(event) {
+
+window.addEventListener("load", () => {
   
   setTimeout(()=>{
-    preload.style.display = "none";
-    body.style.display = "block";
+    
     modal.style.display = "block";
   },1000);
   
