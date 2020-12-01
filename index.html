@@ -178,7 +178,7 @@
         </a>
     </div>
 
-    <div class="menu">
+    <div class="menu" @click="click()">
         <div class="bar"></div>
         
     </div>
@@ -446,24 +446,27 @@
     </ul>
 </footer>
 
-    
-    <script src="js/slide.js" type="text/javascript"></script>
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
-    
-    
   
-    <script>
-        new WOW().init();
-    </script>
-    <script src="node_modules/sal.js/dist/sal.js"></script>
-    <script>
-        sal();
-    </script>
-    
     
    
 </section>  
 </div>
+  
+<script src="js/slide.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+
+<script>
+    
+</script>
+
+<script>
+    new WOW().init();
+</script>
+<script src="node_modules/sal.js/dist/sal.js"></script>
+<script>
+    sal();
+</script>
+
 <script>
     Vue.component("modal", {
             template: "#modal-template"
@@ -631,7 +634,21 @@
                     } else {
                         alert('Mã đã hết hạn hoặc không tồn tại')
                     }
-          }
+          },
+           click(){
+            const menu = document.querySelector(".menu");           
+            const header = document.querySelector(".header1");
+            const navbar = document.querySelector(".navmenu__li");
+            const navbar_ul = document.querySelector(".navmenu__li> ul");
+            const menu1 = document.getElementById("menu1");
+
+            menu.classList.toggle("active");
+            header.classList.toggle("active");
+            navbar.classList.toggle('active');
+            navbar_ul.classList.toggle("active")
+   
+
+           }
       
    }
     ,

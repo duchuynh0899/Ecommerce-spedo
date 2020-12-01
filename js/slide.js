@@ -115,14 +115,4 @@ function myFunction() {
 
 
 
-const menu = document.querySelector(".menu");
-const header = document.querySelector(".header1");
-const navbar = document.querySelector(".navmenu__li");
-const navbar_ul = document.querySelector(".navmenu__li> ul");
-menu.addEventListener("click", () => {  
-   menu.classList.toggle("active");
-   header.classList.toggle("active");
-   navbar.classList.toggle('active');
-   navbar_ul.classList.toggle("active")
-   
-});
+
